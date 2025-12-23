@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
-public partial class LevelView : ContentPage
+public partial class LevelView : ContentView
 {
     public LevelView()
     {

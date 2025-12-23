@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
-public partial class SettingsView : ContentPage
+public partial class SettingsView : ContentView
 {
     public SettingsView()
     {

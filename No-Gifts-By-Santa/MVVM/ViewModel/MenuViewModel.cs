@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Windows.Input;
 using No_Gifts_By_Santa.MVVM.View;
+using Button = Microsoft.Maui.Controls.Button;
 
 namespace No_Gifts_By_Santa.MVVM.ViewModel
 {
@@ -15,12 +16,25 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             get => _buttonWidth;
             set => SetField(ref _buttonWidth, value);
         }
+
+        public Microsoft.Maui.Controls.View Popup
+        {
+            get;
+            set;
+        }
+
+        public bool PopupEnabled
+        {
+            get;
+            set;
+        }
         
         //Variables - ICommands
         public ICommand _levelView { get; }
         public ICommand _creditsView { get; }
         public ICommand _settingsView { get; }
         public ICommand _tutorialView { get; }
+        public ICommand _closePopup { get; }
 
         public MenuViewModel()
         {
@@ -28,6 +42,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             _creditsView = new Command<Button>(CreditsButton);
             _settingsView = new Command<Button>(SettingsButton);
             _tutorialView = new Command<Button>(TutorialButton);
+            _closePopup = new Command<Button>(ClosePopup);
         }
         
         //Basic Functions for Changing the Buttons Width
@@ -43,35 +58,37 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         //Button Methods / ICommands
         private async void LevelButton(Button button)
         {
-            try
-            {
-                if (Application.Current?.MainPage?.Navigation != null)
-                    await Application.Current.MainPage.Navigation.PushAsync(new MVVM.View.LevelView(), true);
-            }catch (Exception){/*inactive*/}
+            Popup = new LevelView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
         }
         private async void CreditsButton(Button button)
         {
-            try
-            {
-                if (Application.Current?.MainPage?.Navigation != null)
-                    await Application.Current.MainPage.Navigation.PushAsync(new MVVM.View.CreditsView(), true);
-            }catch (Exception){/*inactive*/}
+            Popup = new CreditsView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
         }
         private async void SettingsButton(Button button)
         {
-            try
-            {
-                if (Application.Current?.MainPage?.Navigation != null)
-                    await Application.Current.MainPage.Navigation.PushAsync(new MVVM.View.SettingsView(), true);
-            }catch (Exception){/*inactive*/}
+            Popup = new SettingsView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
         }
         private async void TutorialButton(Button button)
         {
-            try
-            {
-                if (Application.Current?.MainPage?.Navigation != null)
-                    await Application.Current.MainPage.Navigation.PushAsync(new MVVM.View.TutorialView(), true);
-            }catch (Exception){/*inactive*/}
+            Popup = new TutorialView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
+        }
+
+        private void ClosePopup(Button button)
+        {
+            PopupEnabled = false;
+            OnPropertyChanged(nameof(PopupEnabled));
         }
         
         //Basic Logics for the ViewModel functions.

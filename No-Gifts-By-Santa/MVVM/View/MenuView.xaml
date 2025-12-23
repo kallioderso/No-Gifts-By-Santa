@@ -21,13 +21,37 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid x:Name="MenuPage">
-            <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
-                <Button BackgroundColor="#FF00F4BE" Text="Level" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
-                <Button BackgroundColor="#F9FF0F4B" Text="Credits" WidthRequest="{Binding ButtonWidth}" Command="{Binding _creditsView}"/>
-                <Button BackgroundColor="#F007FE" Text="Settings" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
-                <Button BackgroundColor="#A4AAF48E" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
-            </VerticalStackLayout>
-        </Grid>
+        <AbsoluteLayout>
+            <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All">
+                <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Button BackgroundColor="#FF00F4BE" Text="Level" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
+                    <Button BackgroundColor="#F9FF0F4B" Text="Credits" WidthRequest="{Binding ButtonWidth}" Command="{Binding _creditsView}"/>
+                    <Button BackgroundColor="#F007FE" Text="Settings" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
+                    <Button BackgroundColor="#A4AAF48E" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <Border x:Name="PopupFrame"
+                    AbsoluteLayout.LayoutBounds="100,100,500,300"
+                    AbsoluteLayout.LayoutFlags="None"
+                    IsVisible="{Binding PopupEnabled}"
+                    Padding="0">
+                <Border.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="PopUpDragUpdate"/>
+                </Border.GestureRecognizers>
+                <Grid>
+                    <ContentView
+                        WidthRequest="{Binding Source={x:Reference PopupFrame}, Path=Width}"
+                        HeightRequest="{Binding Source={x:Reference PopupFrame}, Path=Height}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Padding="0"
+                        Margin="10"
+                        Content="{Binding Popup}" />
+                    <Button Text="x" HorizontalOptions="End" VerticalOptions="Start" Margin="5" Command="{Binding _closePopup}"/>
+                </Grid>
+            </Border>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

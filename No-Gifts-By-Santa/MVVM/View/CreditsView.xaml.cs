@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
-public partial class CreditsView : ContentPage
+public partial class CreditsView : ContentView
 {
     public CreditsView()
     {
