@@ -12,6 +12,17 @@
     </ContentView.Background>
     
     <ContentView.Content>
-        
+        <Grid Margin="20">
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                <StackLayout Orientation="Horizontal" Spacing="12">
+                    <Label Text="Programming:" TextColor="Indigo" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="Pascal Lösch" TextColor="Azure" TextDecorations="Underline" FontSize="18" FontAttributes="Italic"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="12">
+                    <Label Text="Designing:" TextColor="Indigo" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="Lena Röder" TextColor="Azure" TextDecorations="Underline" FontSize="18" FontAttributes="Italic"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentView.Content>
 </ContentView>

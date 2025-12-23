@@ -12,6 +12,25 @@
     </ContentView.Background>
     
     <ContentView.Content>
-        
+        <Grid Margin="20">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" Spacing="16">
+                    <Label Text="Volume Total" FontSize="18"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="16">
+                    <Label Text="Volume Music" FontSize="18"/>
+                    <Slider Minimum="0" Maximum="10" Value="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="16">
+                    <Label Text="Volume Sounds" FontSize="18"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" Width="100" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="16">
+                    <Label Text="Pauls" FontSize="18"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentView.Content>
 </ContentView>
