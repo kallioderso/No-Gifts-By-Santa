@@ -23,11 +23,10 @@
     <ContentPage.Content>
         <Grid x:Name="MenuPage">
             <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
-                <Button Text="Level" WidthRequest="{Binding ButtonWidth}" />
-                <Button Text="Credits" WidthRequest="{Binding ButtonWidth}" />
-                <Button Text="Settings" WidthRequest="{Binding ButtonWidth}" />
-                <Button Text="Tutorial" WidthRequest="{Binding ButtonWidth}" />
-
+                <Button BackgroundColor="#FF00F4BE" Text="Level" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
+                <Button BackgroundColor="#F9FF0F4B" Text="Credits" WidthRequest="{Binding ButtonWidth}" Command="{Binding _creditsView}"/>
+                <Button BackgroundColor="#F007FE" Text="Settings" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
+                <Button BackgroundColor="#A4AAF48E" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
             </VerticalStackLayout>
         </Grid>
     </ContentPage.Content>
