@@ -18,6 +18,7 @@ public partial class MenuView : ContentPage
     //Constructor
     public MenuView()
     {
+        Console.WriteLine("test");
         InitializeComponent();
         _viewModel = BindingContext as MenuViewModel;
         this.SizeChanged += SizeChangedEvent;
