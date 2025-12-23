@@ -1,0 +1,2 @@
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "No_Gifts_By_Santa")]
+[assembly: XmlnsDefinition("http://schemas.microsoft.com/dotnet/maui/global", "No_Gifts_By_Santa.Pages")]
