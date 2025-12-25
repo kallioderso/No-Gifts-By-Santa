@@ -12,4 +12,14 @@ public partial class LevelView : ContentView
     {
         InitializeComponent();
     }
+
+    private async void Button_OnClicked(object? sender, EventArgs e)
+    {
+        try
+        {
+            if (Application.Current?.MainPage?.Navigation != null)
+                await Application.Current.MainPage.Navigation.PushAsync(new GameView(), true);
+        }
+        catch (Exception){/*inactive*/}
+    }
 }

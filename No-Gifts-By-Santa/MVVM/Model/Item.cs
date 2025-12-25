@@ -13,9 +13,10 @@
         public string AgeGroup { get; set; }
         public string Material { get; set; }
         
-        public Item(Grid canvas) : base(canvas)
+        public Item(AbsoluteLayout canvas) : base(canvas)
         {
-            
+            this.HeightRequest = 100;
+            this.WidthRequest = 100;
         }
     }
 }

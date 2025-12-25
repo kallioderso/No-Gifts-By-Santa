@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Maui.Layouts;
+using No_Gifts_By_Santa.MVVM.Model;
 using No_Gifts_By_Santa.MVVM.ViewModel;
 
 namespace No_Gifts_By_Santa.MVVM.View;

@@ -21,7 +21,7 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout x:Name="Canvas">
             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
                   AbsoluteLayout.LayoutFlags="All">
                 <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
