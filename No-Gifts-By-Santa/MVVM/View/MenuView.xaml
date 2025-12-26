@@ -26,9 +26,8 @@
                   AbsoluteLayout.LayoutFlags="All">
                 <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
                     <Button BackgroundColor="#FF00F4BE" Text="Level" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
-                    <Button BackgroundColor="#F9FF0F4B" Text="Credits" WidthRequest="{Binding ButtonWidth}" Command="{Binding _creditsView}"/>
                     <Button BackgroundColor="#F007FE" Text="Settings" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
-                    <Button BackgroundColor="#A4AAF48E" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
+                    <Button BackgroundColor="#F9FF0F4B" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
                 </VerticalStackLayout>
             </Grid>
             
@@ -48,7 +47,7 @@
                         VerticalOptions="Center"
                         Padding="0"
                         Margin="10"
-                        Content="{Binding Popup}" />
+                        Content="{Binding Popup}"/>
                     <Button Text="x" HorizontalOptions="End" VerticalOptions="Start" Margin="5" Command="{Binding _closePopup}" BackgroundColor="Brown"/>
                 </Grid>
             </Border>

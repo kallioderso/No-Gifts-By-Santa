@@ -7,11 +7,13 @@
     <ContentView.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="#ffffff" Offset="0.0" />
-            <GradientStop Color="#A4AAF48E" Offset="1.0" />
+            <GradientStop Color="#F9FF0F4B" Offset="1.0" />
         </LinearGradientBrush>
     </ContentView.Background>
     
     <ContentView.Content>
-        
+        <Grid>
+            
+        </Grid>
     </ContentView.Content>
 </ContentView>
