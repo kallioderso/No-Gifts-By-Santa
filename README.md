@@ -1,6 +1,6 @@
 <p align="center">
     <a>
-        <img src="images/NGBS-Banner.jpeg" style="width: 100%; border-radius: 10px;" alt="No Gifts By Santa Banner">
+        <img src="Images/NGBS-Banner.jpeg" style="width: 100%; border-radius: 10px;" alt="No Gifts By Santa Banner">
     </a>
 </p>
 
