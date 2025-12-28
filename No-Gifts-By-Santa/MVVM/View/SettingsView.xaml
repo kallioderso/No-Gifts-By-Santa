@@ -2,6 +2,7 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:No_Gifts_By_Santa.MVVM.ViewModel"
              x:Class="No_Gifts_By_Santa.MVVM.View.SettingsView">
     
     <ContentView.Background>
@@ -10,26 +11,65 @@
             <GradientStop Color="#F007FE" Offset="1.0" />
         </LinearGradientBrush>
     </ContentView.Background>
+
+    <ContentView.BindingContext>
+        <local:SettingsViewModel/>
+    </ContentView.BindingContext>
     
     <ContentView.Content>
-        <Grid Margin="20">
-            <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal" Spacing="16">
-                    <Label Text="Volume Total" FontSize="18"/>
-                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand"/>
+        <Grid Margin="20" x:Name="MainGrid">
+            <!-- Page 1: Sounds -->
+            <StackLayout Orientation="Vertical" Spacing="4" VerticalOptions="Center" IsVisible="{Binding IsSoundsPageVisible}">
+                <Label Text="Sounds" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Volume Total" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Spacing="16">
-                    <Label Text="Volume Music" FontSize="18"/>
-                    <Slider Minimum="0" Maximum="10" Value="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Volume Music" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Spacing="16">
-                    <Label Text="Volume Sounds" FontSize="18"/>
-                    <Slider Minimum="0" Maximum="10" Scale="1" Width="100" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand" />
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Volume Sounds" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" Spacing="16">
-                    <Label Text="Pauls" FontSize="18"/>
-                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <!-- Page 2: Graphics -->
+            <StackLayout Orientation="Vertical" Spacing="4" VerticalOptions="Center" IsVisible="{Binding IsGraphicsPageVisible}">
+                <Label Text="Graphics" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="resolution" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Quality" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="10" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="FPS-Cap" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="200" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Page 3: Idk -->
+            <StackLayout Orientation="Vertical" Spacing="4" VerticalOptions="Center" IsVisible="{Binding IsIdkPageVisible}">
+                <Label Text="Idk" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Pauls" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="2" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="8">
+                    <Label Text="Quality" FontSize="20"/>
+                    <Slider Minimum="0" Maximum="1" Scale="1" ThumbColor="Black" MaximumTrackColor="Azure" MinimumTrackColor="CadetBlue" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Navigation Buttons -->
+            <StackLayout HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="8">
+                <Button Text="◄" WidthRequest="20" HeightRequest="20" Command="{Binding _LeftPagCommand}"/>
+                <Button Text="Save" WidthRequest="80" HeightRequest="20" Command="{Binding _SavePageSettingsCommand}"/>
+                <Button Text="►" WidthRequest="20" HeightRequest="20" Command="{Binding _RightPageCommand}"/>
             </StackLayout>
         </Grid>
     </ContentView.Content>
