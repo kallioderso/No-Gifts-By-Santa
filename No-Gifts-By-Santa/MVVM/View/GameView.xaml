@@ -13,7 +13,8 @@
     
     <ContentPage.Content>
         <AbsoluteLayout x:Name="Canvas">
-            <Label>Level: </Label>
+            <Label x:Name="test" HorizontalOptions="Start" VerticalOptions="Start">Tag: </Label>
+            
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

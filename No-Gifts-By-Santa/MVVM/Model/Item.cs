@@ -5,6 +5,7 @@
         //Base Item Properties
         private dropElement _giftBoxDropElement;
         private PanGestureRecognizer _dropGesture = new();
+        private TapGestureRecognizer _tapGesture = new();
         private AbsoluteLayout _canvas;
 
         public string itemName { get; set; }
@@ -18,6 +19,8 @@
         public string Material { get; set; }
         public string Usage { get; set; }
         
+        //Other Variables
+        private bool _insidePackage = false;
         public Item(AbsoluteLayout canvas, dropElement dropElement) : base(canvas)
         {
             this.HeightRequest = 100;
@@ -27,6 +30,9 @@
             _canvas = canvas;
             this.GestureRecognizers.Add(_dropGesture);
             _dropGesture.PanUpdated += Droping;
+            this.GestureRecognizers.Add(_tapGesture);
+            _tapGesture.Tapped += Taking;
+
         }
 
 
@@ -50,7 +56,19 @@
             
             if (isColliding)
             {
-                this.Source = "tee.png";
+                _canvas.Children.Remove(this);
+                _giftBoxDropElement.CaptureItem(this);
+                _insidePackage = true;
+            }
+        }
+
+        private void Taking(object? sender, TappedEventArgs tappedEventArgs)
+        {
+            if (_insidePackage)
+            {
+                _giftBoxDropElement.ReleaseItem(this);
+                _canvas.Add(this);
+                _insidePackage = false;
             }
         }
     }

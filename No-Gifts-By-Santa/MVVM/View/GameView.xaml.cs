@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using No_Gifts_By_Santa.MVVM.Model;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
 public partial class GameView : ContentPage
 {
-    public GameView()
+    public GameView(int _level)
     {
         InitializeComponent();
+        test.Text = $"Tag: {_level}";
+        var _clock = new clock(Canvas)
+        {
+            HorizontalOptions = LayoutOptions.End,
+            VerticalOptions = LayoutOptions.Start
+        };
+        Canvas.Add(_clock);
+        AbsoluteLayout.SetLayoutBounds(_clock, new Rect(1000, 0, 100, 100));
+        _clock.StartClock();
         var giftBox = new Model.dropElement(Canvas);
         giftBox.Source = "tilecoins_shop.png";
         Canvas.Add(giftBox);

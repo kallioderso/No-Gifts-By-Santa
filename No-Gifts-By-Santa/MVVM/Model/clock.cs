@@ -5,16 +5,21 @@ using System.Threading.Tasks;
 
 namespace No_Gifts_By_Santa.MVVM.Model
 {
-    public class clock
+    public class clock : Label
     {
         public int _hours;
         public int _minutes;
         private bool _isPaused;
+        private AbsoluteLayout _canvas;
 
-        public clock()
+        public clock(AbsoluteLayout Canvas)
         {
+            _canvas = Canvas;
             _hours = 9;
             _minutes = 0;
+            this.Text = "00:00";
+            this.HorizontalOptions = LayoutOptions.End;
+            this.VerticalOptions = LayoutOptions.Start;
         }
 
         public void StartClock()
@@ -33,12 +38,16 @@ namespace No_Gifts_By_Santa.MVVM.Model
                 if (!_isPaused)
                 {
                     if (_minutes == 55)
-                    { 
+                    {
                         _hours++;
-                        _minutes = 00; 
+                        _minutes = 00;
                     }
                     else
                         _minutes += 5;
+
+                    this.Text = $"{_hours}:{_minutes}";
+                    _canvas.Children.Remove(this);
+                    _canvas.Children.Add(this);
                 }
             }
         }
