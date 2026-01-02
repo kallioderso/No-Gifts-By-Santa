@@ -9,48 +9,50 @@
         <BackButtonBehavior IsVisible="False" IsEnabled="False"/>
     </Shell.BackButtonBehavior>
     
-    <ContentPage.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#ffffff" Offset="0.0" />
-            <GradientStop Color="#FFFFF4BE" Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
-    
     <ContentPage.BindingContext>
         <local:MenuViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <AbsoluteLayout x:Name="Canvas">
-            <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
-                  AbsoluteLayout.LayoutFlags="All">
-                <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Button BackgroundColor="#FF00F4BE" Text="Level" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
-                    <Button BackgroundColor="#F007FE" Text="Settings" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
-                    <Button BackgroundColor="#F9FF0F4B" Text="Tutorial" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
-                </VerticalStackLayout>
-            </Grid>
-            
-            <Border x:Name="PopupFrame"
-                    AbsoluteLayout.LayoutBounds="100,100,500,300"
-                    AbsoluteLayout.LayoutFlags="None"
-                    IsVisible="{Binding PopupEnabled}"
-                    Padding="0">
-                <Border.GestureRecognizers>
-                    <PanGestureRecognizer PanUpdated="PopUpDragUpdate"/>
-                </Border.GestureRecognizers>
-                <Grid>
-                    <ContentView
-                        WidthRequest="{Binding Source={x:Reference PopupFrame}, Path=Width}"
-                        HeightRequest="{Binding Source={x:Reference PopupFrame}, Path=Height}"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        Padding="0"
-                        Margin="10"
-                        Content="{Binding Popup}"/>
-                    <Button Text="x" HorizontalOptions="End" VerticalOptions="Start" Margin="5" Command="{Binding _closePopup}" BackgroundColor="Brown"/>
+        <Grid>
+            <Image Aspect="Fill" Source="main_menu.png" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+            <AbsoluteLayout x:Name="Canvas">
+                <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      AbsoluteLayout.LayoutFlags="All">
+                    <VerticalStackLayout Spacing="12" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ImageButton BackgroundColor="Transparent" Source="level_button.png" WidthRequest="{Binding ButtonWidth}" Command="{Binding _levelView}"/>
+                        <ImageButton BackgroundColor="Transparent" Source="settings_button.png" WidthRequest="{Binding ButtonWidth}" Command="{Binding _settingsView}"/>
+                        <ImageButton BackgroundColor="Transparent" Source="tutorial_button.png" WidthRequest="{Binding ButtonWidth}" Command="{Binding _tutorialView}"/>
+                    </VerticalStackLayout>
                 </Grid>
-            </Border>
-        </AbsoluteLayout>
+                
+                <Border x:Name="PopupFrame"
+                        AbsoluteLayout.LayoutBounds="100,100,750,450"
+                        AbsoluteLayout.LayoutFlags="None"
+                        IsVisible="{Binding PopupEnabled}"
+                        Padding="0"  
+                        Stroke="Transparent">
+                    <Border.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PopUpDragUpdate"/>
+                    </Border.GestureRecognizers>
+                    <Grid>
+                        <Image Source="basic_menu.png"
+                               Aspect="Fill"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="Fill"/>
+                        <ContentView
+                            WidthRequest="{Binding Source={x:Reference PopupFrame}, Path=Width}"
+                            HeightRequest="{Binding Source={x:Reference PopupFrame}, Path=Height}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Padding="50"
+                            Margin="0"
+                            Content="{Binding Popup}"/>
+                        <Button Text="x" HorizontalOptions="End" VerticalOptions="Start" Margin="5" Command="{Binding _closePopup}" BackgroundColor="Brown"/>
+                    </Grid>
+                </Border>
+            </AbsoluteLayout>     
+        </Grid>
+       
     </ContentPage.Content>
 </ContentPage>

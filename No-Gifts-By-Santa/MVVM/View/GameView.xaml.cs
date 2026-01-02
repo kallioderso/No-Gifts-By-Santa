@@ -13,14 +13,6 @@ public partial class GameView : ContentPage
     {
         InitializeComponent();
         test.Text = $"Tag: {_level}";
-        var _clock = new clock(Canvas)
-        {
-            HorizontalOptions = LayoutOptions.End,
-            VerticalOptions = LayoutOptions.Start
-        };
-        Canvas.Add(_clock);
-        AbsoluteLayout.SetLayoutBounds(_clock, new Rect(1000, 0, 100, 100));
-        _clock.StartClock();
         var giftBox = new Model.dropElement(Canvas);
         giftBox.Source = "tilecoins_shop.png";
         Canvas.Add(giftBox);

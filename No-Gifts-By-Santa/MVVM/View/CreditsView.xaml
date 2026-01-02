@@ -4,13 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="No_Gifts_By_Santa.MVVM.View.CreditsView">
     
-    <ContentView.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#ffffff" Offset="0.0" />
-            <GradientStop Color="#F9FF0F4B" Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentView.Background>
-    
     <ContentView.Content>
         <Grid Margin="20">
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">

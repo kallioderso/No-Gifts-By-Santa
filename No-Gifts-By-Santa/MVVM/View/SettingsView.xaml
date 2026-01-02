@@ -4,13 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="using:No_Gifts_By_Santa.MVVM.ViewModel"
              x:Class="No_Gifts_By_Santa.MVVM.View.SettingsView">
-    
-    <ContentView.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#ffffff" Offset="0.0" />
-            <GradientStop Color="#F007FE" Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentView.Background>
 
     <ContentView.BindingContext>
         <local:SettingsViewModel/>

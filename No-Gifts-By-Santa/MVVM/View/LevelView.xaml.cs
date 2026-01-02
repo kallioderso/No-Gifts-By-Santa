@@ -15,11 +15,11 @@ public partial class LevelView : ContentView
 
     private async void Button_OnClicked(object? sender, EventArgs e)
     {
-        var _button = sender as Button;
+        var _button = sender as ImageButton;
         try
         {
             if (Application.Current?.MainPage?.Navigation != null)
-                await Application.Current.MainPage.Navigation.PushAsync(new GameView(Convert.ToInt32(_button.Text)), true);
+                await Application.Current.MainPage.Navigation.PushAsync(new GameView(1), true);
         }
         catch (Exception){/*inactive*/}
     }
