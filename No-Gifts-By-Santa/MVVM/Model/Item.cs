@@ -5,7 +5,6 @@
         //Base Item Properties
         private dropElement _giftBoxDropElement;
         private PanGestureRecognizer _dropGesture = new();
-        private TapGestureRecognizer _tapGesture = new();
         private AbsoluteLayout _canvas;
 
         public string itemName { get; set; }
@@ -21,18 +20,21 @@
         
         //Other Variables
         private bool _insidePackage = false;
-        public Item(AbsoluteLayout canvas, dropElement dropElement) : base(canvas)
+        public Item(AbsoluteLayout canvas, dropElement dropElement, string color, string category, string agegroup, string material, string usage, string source) : base(canvas)
         {
             this.HeightRequest = 100;
             this.WidthRequest = 100;
+            this.Source = source;
             this.Focused += AttributeHover;
             _giftBoxDropElement = dropElement;
             _canvas = canvas;
             this.GestureRecognizers.Add(_dropGesture);
             _dropGesture.PanUpdated += Droping;
-            this.GestureRecognizers.Add(_tapGesture);
-            _tapGesture.Tapped += Taking;
-
+            Color = color;
+            Category = category;
+            AgeGroup = agegroup;
+            Material = material;
+            Usage = usage;
         }
 
 
@@ -59,16 +61,6 @@
                 _canvas.Children.Remove(this);
                 _giftBoxDropElement.CaptureItem(this);
                 _insidePackage = true;
-            }
-        }
-
-        private void Taking(object? sender, TappedEventArgs tappedEventArgs)
-        {
-            if (_insidePackage)
-            {
-                _giftBoxDropElement.ReleaseItem(this);
-                _canvas.Add(this);
-                _insidePackage = false;
             }
         }
     }

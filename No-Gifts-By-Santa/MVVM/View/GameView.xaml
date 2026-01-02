@@ -18,10 +18,15 @@
     
     <ContentPage.Content>
             <Grid>
-                <Label x:Name="test" HorizontalOptions="Start" VerticalOptions="Start">Tag: </Label>
-                <Image Source="{Binding clockTime}" HeightRequest="200" WidthRequest="200" HorizontalOptions="End"/>
-            <AbsoluteLayout x:Name="Canvas">
-            </AbsoluteLayout>
+                <Image Aspect="Fill" HorizontalOptions="Fill" VerticalOptions="Fill" Source="game_menu.png"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
+                    <Image Source="gingerbread.png" HeightRequest="30"/>
+                    <Label Text="{Binding Lebkuchen}" FontSize="20"/>
+                </StackLayout>
+                <Label x:Name="wishes" Text="{Binding WishText}" FontSize="24" Margin="170,200,0,0" LineBreakMode="WordWrap" MaxLines="6" FontAttributes="Bold"/>
+                <Image Source="{Binding clockTime}" HeightRequest="200" WidthRequest="200" HorizontalOptions="End" VerticalOptions="Start"/>
+                <AbsoluteLayout x:Name="Canvas">
+                </AbsoluteLayout>
             </Grid>
     </ContentPage.Content>
 </ContentPage>

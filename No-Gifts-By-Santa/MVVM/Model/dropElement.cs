@@ -1,72 +1,88 @@
 
+using System.ComponentModel;
+using No_Gifts_By_Santa.MVVM.ViewModel;
+
 namespace No_Gifts_By_Santa.MVVM.Model
 {
-    public class dropElement : dragElement
+    public class dropElement : dragElement, INotifyPropertyChanged
     {
         //Variables
         private AbsoluteLayout _canvas;
+        private GameViewModel _viewModel;
         private List<Item> _items = new List<Item>();
-        private Border _itemBorder = new Border()
-        {
-            HeightRequest = 60
-        };
-        private StackLayout _itemStacker = new StackLayout()
-        {
-            Margin = 5,
-            Spacing = 4,
-            Orientation = StackOrientation.Horizontal
-        };
+        private int _itemAmount = 0;
 
-        private bool _containment = false;
+        //Properties
+        private string Color { get; set; }
+        private string Category { get; set; }
+        private string AgeGroup { get; set; }
+        private string Material { get; set; }
+        private string Usage { get; set; }
 
-        public dropElement(AbsoluteLayout canvas) : base(canvas)
+        public dropElement(AbsoluteLayout canvas, GameViewModel _gameview, string color, string category, string ageGroup, string material, string usage) : base(canvas)
         {
             _canvas = canvas;
-            _itemBorder.Content = _itemStacker;
-            _canvas.Add(_itemBorder);
-            _canvas.SetLayoutBounds(_itemBorder, new Rect(200, 440, 100, 100));
-            TapGestureRecognizer _reco = new TapGestureRecognizer();
-            _reco.Tapped += HoverGift;
-            this.GestureRecognizers.Add(_reco);
-            _itemBorder.IsVisible = false;
+            _viewModel = _gameview;
+            Color = color;
+            Category = category;
+            AgeGroup = ageGroup;
+            Material = material;
+            Usage = material;
         }
 
         // Methods for Storing items
         public void CaptureItem(Item item) => TakeItem(item);
 
-        private void TakeItem(Item item)
+        private void TakeItem(Item _item)
         {
-            _items.Add(item);
-        }
-
-        public void ReleaseItem(Item item)
-        {
-            _items.Remove(item);
-        }
-
-        // Methods for Displaying stored items
-        private void HoverGift(object? sender, TappedEventArgs tappedEventArgs)
-        {
-            if(_containment)
-                _itemBorder.IsVisible = false;
-            else
+            _items.Add(_item);
+            _itemAmount++;
+            if(_itemAmount == 3)
             {
-                int itemsCount = 0;
-                _itemStacker.Clear();
-                foreach (var _item in _items)
+                foreach (var item in _items)
                 {
-                    _item.WidthRequest = 50;
-                    _item.HeightRequest = 50;
-                    _itemStacker.Add(_item);
-                    itemsCount++;
-                }
+                    int perfektCounter = 0;
+                    if(item.Color == Color)
+                    {
+                        Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        perfektCounter++;
+                    }
 
-                _itemBorder.WidthRequest = 60 * itemsCount;
-                _itemBorder.IsVisible = true;
-                var position = _canvas.GetLayoutBounds(this);
-                _canvas.SetLayoutBounds(_itemBorder, new Rect(position.X, (position.Y-70), 100, 100));
+                    if (item.Category == Category)
+                    {
+                        Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        perfektCounter++;
+                    }
+                    if(item.AgeGroup == AgeGroup)
+                    {
+                        Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        perfektCounter++;
+                    }
+                    if(item.Material == Material)
+                    {
+                        Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        perfektCounter++;
+                    }
+
+                    if (item.Usage == Usage)
+                    {
+                        Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        perfektCounter++;
+                    }
+
+                    switch (perfektCounter)
+                    {
+                        case 3:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1); break;
+                        case 4:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 2); break;
+                        case 5:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); break;
+                    }
+                }
+                _canvas.Clear();
+                _viewModel.GenerateRound(_canvas);
             }
-            _containment = !_containment;
         }
     }
 }

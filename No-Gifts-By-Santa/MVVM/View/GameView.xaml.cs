@@ -4,34 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using No_Gifts_By_Santa.MVVM.Model;
+using No_Gifts_By_Santa.MVVM.ViewModel;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
 public partial class GameView : ContentPage
 {
+    private GameViewModel _viewModel;
     public GameView(int _level)
     {
         InitializeComponent();
-        test.Text = $"Tag: {_level}";
-        var giftBox = new Model.dropElement(Canvas);
-        giftBox.Source = "tilecoins_shop.png";
-        Canvas.Add(giftBox);
-        AbsoluteLayout.SetLayoutBounds(giftBox, new Rect(200, 500, 100, 100));
+        _viewModel = BindingContext as GameViewModel;
+        _viewModel.GenerateRound(Canvas);
+    }
 
-        var salbe = new Model.Item(Canvas, giftBox);
-        salbe.Source = "salbe.png";
-        Canvas.Add(salbe);
+    protected override void OnSizeAllocated(double width, double height)
+    {
+        base.OnSizeAllocated(width, height);
         
-        var tee = new Model.Item(Canvas, giftBox);
-        tee.Source = "tee.png";
-        Canvas.Add(tee);
+        // Calculate scale based on screen size (reference: 1920x1080)
+        double scaleX = width / 1920.0;
+        double scaleY = height / 1080.0;
+        double scale = Math.Min(scaleX, scaleY);
         
-        var kekse = new Model.Item(Canvas, giftBox);
-        kekse.Source = "kekse.png";
-        Canvas.Add(kekse);
+        // Update wish label position and size
+        wishes.FontSize = 24 * scale;
+        wishes.Margin = new Thickness(
+            170 * scaleX,
+            250 * scaleY,
+            0,
+            0
+        );
         
-        var biene = new Model.Item(Canvas, giftBox);
-        biene.Source = "biene.png";
-        Canvas.Add(biene);
+        // Update gift box position
+        _viewModel.UpdateGiftBoxPosition(Canvas, scaleX, scaleY);
+        
+        // Update items positions
+        _viewModel.UpdateItemsPositions(Canvas, scaleX, scaleY);
+    }
+
+    public void RenewWish()
+    {
+        Canvas.Clear();
+        _viewModel.ClearRound();
+        _viewModel.GenerateRound(Canvas);
+        
+        // Trigger resize to reposition elements
+        OnSizeAllocated(Width, Height);
     }
 }

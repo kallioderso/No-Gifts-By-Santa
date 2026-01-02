@@ -46,6 +46,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
                     OnPropertyChanged(nameof(_minutes));
                 }
             }
+            (Application.Current.MainPage).Navigation.PopAsync();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

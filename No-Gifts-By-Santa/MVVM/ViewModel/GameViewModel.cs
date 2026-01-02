@@ -9,11 +9,46 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         //Variables - Basic
         private clock _clock = new clock();
         private string _clockTime;
+
+        public string Lebkuchen
+        {
+            get => _lebkuchen;
+            set => _lebkuchen = value;
+        }
+
+        private string _lebkuchen;
         public string clockTime
         {
             get => _clockTime;
             set => _clockTime = value;
         }
+
+        //Variables for transfering the Elements to the View
+        public List<Item> items
+        {
+            get => _items;
+            private set => _items = value;
+        }
+
+        private List<Item> _items = new List<Item>();
+
+        public dropElement GiftBox
+        {
+            get => _giftBox;
+            private set => _giftBox = value;
+        }
+
+        private dropElement _giftBox;
+
+        public string WishText
+        {
+            get => _wishText;
+            private set => _wishText = value;
+        }
+
+        private string _wishText;
+
+        //Constructor
         public GameViewModel()
         {
             _clock.PropertyChanged += (s, e) =>
@@ -28,7 +63,86 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(clockTime));
             _clock.StartClock();
         }
-        
+
+        //Method for picking items and the Gift box
+        public void GenerateRound(AbsoluteLayout Canvas) => _GeneratePlayRound(Canvas);
+
+        public void ClearRound()
+        {
+            _items.Clear();
+            _giftBox = null;
+            _wishText = string.Empty;
+            OnPropertyChanged(nameof(WishText));
+        }
+
+        public void UpdateGiftBoxPosition(AbsoluteLayout canvas, double scaleX, double scaleY)
+        {
+            if (_giftBox != null)
+            {
+                double x = 280 * scaleX;
+                double y = 700 * scaleY;
+                double size = 120 * Math.Min(scaleX, scaleY);
+                AbsoluteLayout.SetLayoutBounds(_giftBox, new Rect(x, y, size, size));
+            }
+        }
+
+        public void UpdateItemsPositions(AbsoluteLayout canvas, double scaleX, double scaleY)
+        {
+            if (_items.Count == 0) return;
+            
+            double[] xPositionsBase = { 750, 900, 1050, 1200, 750, 900, 1050, 1200, 750, 900, 1050, 1200 };
+            double[] yPositionsBase = { 400, 430, 470, 440, 570, 530, 600, 560, 750, 780, 720, 790 };
+            double size = 80 * Math.Min(scaleX, scaleY);
+            
+            for (int i = 0; i < _items.Count && i < xPositionsBase.Length; i++)
+            {
+                double x = xPositionsBase[i] * scaleX;
+                double y = yPositionsBase[i] * scaleY;
+                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(x, y, size, size));
+            }
+        }
+
+        private void _GeneratePlayRound(AbsoluteLayout _canvas)
+        {
+            // Clear old items first
+            _items.Clear();
+
+            _lebkuchen = Preferences.Get("Lebkuchen", 0).ToString();
+            OnPropertyChanged(nameof(Lebkuchen));
+            
+            var _wish = allwishes.random(_canvas, this);
+            _giftBox = _wish.drop;
+            _wishText = _wish.wish;
+            OnPropertyChanged(nameof(WishText));
+            
+            _items.Add(allItems.Bee(_canvas, _giftBox));
+            _items.Add(allItems.Candy(_canvas, _giftBox));
+            _items.Add(allItems.mug1(_canvas, _giftBox));
+            _items.Add(allItems.mug2(_canvas, _giftBox));
+            _items.Add(allItems.orange(_canvas, _giftBox));
+            _items.Add(allItems.gingerbread(_canvas, _giftBox));
+            _items.Add(allItems.Candy_2(_canvas, _giftBox));
+            _items.Add(allItems.Ring(_canvas, _giftBox));
+            _items.Add(allItems.Dildo(_canvas, _giftBox));
+            _items.Add(allItems.Axe(_canvas, _giftBox));
+            _items.Add(allItems.Hat(_canvas, _giftBox));
+            _items.Add(allItems.jar(_canvas, _giftBox));
+            
+            // Add gift box to the canvas - left bottom table area
+            _canvas.Add(_giftBox);
+            AbsoluteLayout.SetLayoutBounds(_giftBox, new Rect(280, 600, 120, 120));
+            
+            // Add items to the canvas - distributed in right table area (better spacing)
+            double[] xPositions = { 750, 900, 1050, 1200, 750, 900, 1050, 1200, 750, 900, 1050, 1200 };
+            double[] yPositions = { 400, 430, 470, 440, 570, 530, 600, 560, 750, 780, 720, 790 };
+            
+            for (int i = 0; i < _items.Count && i < xPositions.Length; i++)
+            {
+                _canvas.Add(_items[i]);
+                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(xPositions[i], yPositions[i], 80, 80));
+            }
+        }
+
         //Basic Methods for INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
 
