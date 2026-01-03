@@ -12,6 +12,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public int _hours;
         public int _minutes;
         private bool _isPaused;
+        public bool _finished;
 
         public clock()
         {
@@ -31,7 +32,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         {
             while(_hours < 20 || _minutes != 0)
             {
-                await Task.Delay(2000);
+                await Task.Delay(1000);
                 if (!_isPaused)
                 {
                     if (_minutes == 45)
@@ -46,7 +47,6 @@ namespace No_Gifts_By_Santa.MVVM.Model
                     OnPropertyChanged(nameof(_minutes));
                 }
             }
-            (Application.Current.MainPage).Navigation.PopAsync();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

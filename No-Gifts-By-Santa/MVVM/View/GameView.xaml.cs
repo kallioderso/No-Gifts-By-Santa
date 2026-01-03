@@ -15,6 +15,7 @@ public partial class GameView : ContentPage
     {
         InitializeComponent();
         _viewModel = BindingContext as GameViewModel;
+        _viewModel.InputLevel(_level);
         _viewModel.GenerateRound(Canvas);
     }
 

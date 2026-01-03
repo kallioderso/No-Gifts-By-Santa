@@ -5,13 +5,6 @@
              xmlns:local="using:No_Gifts_By_Santa.MVVM.ViewModel"
              x:Class="No_Gifts_By_Santa.MVVM.View.GameView">
     
-    <ContentPage.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#ffffff" Offset="0.0" />
-            <GradientStop Color="#FF00F4BE" Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
-    
     <ContentPage.BindingContext>
         <local:GameViewModel/>
     </ContentPage.BindingContext>
@@ -19,11 +12,15 @@
     <ContentPage.Content>
             <Grid>
                 <Image Aspect="Fill" HorizontalOptions="Fill" VerticalOptions="Fill" Source="game_menu.png"/>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                    <ProgressBar ProgressColor="#a997d7" BackgroundColor="#E0E8FF" Progress="{Binding Progress}" HeightRequest="20" WidthRequest="300"/>
+                    <Label TextColor="#a997d7" FontSize="12" Text="{Binding RemainingGifts}"/>
+                </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
                     <Image Source="gingerbread.png" HeightRequest="30"/>
                     <Label Text="{Binding Lebkuchen}" FontSize="20"/>
                 </StackLayout>
-                <Label x:Name="wishes" Text="{Binding WishText}" FontSize="24" Margin="170,200,0,0" LineBreakMode="WordWrap" MaxLines="6" FontAttributes="Bold"/>
+                <Label x:Name="wishes" Text="{Binding WishText}" FontSize="24" Margin="170,200,0,0" LineBreakMode="WordWrap" MaxLines="6" FontAttributes="Bold" TextColor="black"/>
                 <Image Source="{Binding clockTime}" HeightRequest="200" WidthRequest="200" HorizontalOptions="End" VerticalOptions="Start"/>
                 <AbsoluteLayout x:Name="Canvas">
                 </AbsoluteLayout>

@@ -6,7 +6,11 @@
     
     <ContentView.Content>
         <Grid>
-            
+            <Image Aspect="Fill" HorizontalOptions="Fill" VerticalOptions="Fill" Source="game_menu.png"/>
+            <Label x:Name="wishes" FontSize="10" Margin="50,70,0,0" LineBreakMode="WordWrap" MaxLines="6" FontAttributes="Bold" TextColor="black"/>
+            <Image HeightRequest="200" WidthRequest="200" HorizontalOptions="End" VerticalOptions="Start"/>
+            <AbsoluteLayout x:Name="Canvas">
+            </AbsoluteLayout>
         </Grid>
     </ContentView.Content>
 </ContentView>

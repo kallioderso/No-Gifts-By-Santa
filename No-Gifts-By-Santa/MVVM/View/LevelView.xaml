@@ -2,7 +2,13 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:No_Gifts_By_Santa.MVVM.ViewModel"
              x:Class="No_Gifts_By_Santa.MVVM.View.LevelView">
+    
+    <ContentView.BindingContext>
+        <local:LevelViewModel/>
+    </ContentView.BindingContext>
+
     <ContentView.Content>
         <Grid x:Name="Grid" Padding="20">
             <Grid.RowDefinitions>
@@ -20,30 +26,30 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ImageButton Grid.Column="0" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_1.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="1" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_2.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="2" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_3.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="3" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_4.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="4" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_5.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="5" Grid.Row="0" Margin="5" Clicked="Button_OnClicked" Source="level_calender_6.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="5" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_7.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="5" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_8.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="5" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_9.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="4" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_10.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="3" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_11.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="2" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_12.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="1" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_13.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="0" Grid.Row="3" Margin="5" Clicked="Button_OnClicked" Source="level_calender_14.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="0" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_15.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="0" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_16.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="1" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_17.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="2" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_18.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="3" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_19.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="4" Grid.Row="1" Margin="5" Clicked="Button_OnClicked" Source="level_calender_20.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="4" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_21.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="3" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_22.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="2" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_23.png" BackgroundColor="Transparent"/>
-            <ImageButton Grid.Column="1" Grid.Row="2" Margin="5" Clicked="Button_OnClicked" Source="level_calender_24.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="0" Grid.Row="0" Margin="5" Command="{Binding Day1}" Source="level_calender_1.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="1" Grid.Row="0" Margin="5" Command="{Binding Day2}" Source="level_calender_2.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="2" Grid.Row="0" Margin="5" Command="{Binding Day3}" Source="level_calender_3.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="3" Grid.Row="0" Margin="5" Command="{Binding Day4}" Source="level_calender_4.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="4" Grid.Row="0" Margin="5" Command="{Binding Day5}" Source="level_calender_5.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="5" Grid.Row="0" Margin="5" Command="{Binding Day6}" Source="level_calender_6.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="5" Grid.Row="1" Margin="5" Command="{Binding Day7}" Source="level_calender_7.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="5" Grid.Row="2" Margin="5" Command="{Binding Day8}" Source="level_calender_8.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="5" Grid.Row="3" Margin="5" Command="{Binding Day9}" Source="level_calender_9.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="4" Grid.Row="3" Margin="5" Command="{Binding Day10}" Source="level_calender_10.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="3" Grid.Row="3" Margin="5" Command="{Binding Day11}" Source="level_calender_11.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="2" Grid.Row="3" Margin="5" Command="{Binding Day12}" Source="level_calender_12.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="1" Grid.Row="3" Margin="5" Command="{Binding Day13}" Source="level_calender_13.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="0" Grid.Row="3" Margin="5" Command="{Binding Day14}" Source="level_calender_14.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="0" Grid.Row="2" Margin="5" Command="{Binding Day15}" Source="level_calender_15.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="0" Grid.Row="1" Margin="5" Command="{Binding Day16}" Source="level_calender_16.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="1" Grid.Row="1" Margin="5" Command="{Binding Day17}" Source="level_calender_17.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="2" Grid.Row="1" Margin="5" Command="{Binding Day18}" Source="level_calender_18.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="3" Grid.Row="1" Margin="5" Command="{Binding Day19}" Source="level_calender_19.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="4" Grid.Row="1" Margin="5" Command="{Binding Day20}" Source="level_calender_20.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="4" Grid.Row="2" Margin="5" Command="{Binding Day21}" Source="level_calender_21.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="3" Grid.Row="2" Margin="5" Command="{Binding Day22}" Source="level_calender_22.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="2" Grid.Row="2" Margin="5" Command="{Binding Day23}" Source="level_calender_23.png" BackgroundColor="Transparent"/>
+            <ImageButton Grid.Column="1" Grid.Row="2" Margin="5" Command="{Binding Day24}" Source="level_calender_24.png" BackgroundColor="Transparent"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

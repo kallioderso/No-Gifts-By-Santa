@@ -31,13 +31,13 @@ namespace No_Gifts_By_Santa.MVVM.Model
         }
 
         // Methods for Storing items
-        public void CaptureItem(Item item) => TakeItem(item);
+        public void CaptureItem(Item item) => TakeItemAsync(item);
 
-        private void TakeItem(Item _item)
+        private async Task TakeItemAsync(Item _item)
         {
             _items.Add(_item);
             _itemAmount++;
-            if(_itemAmount == 3)
+            if(_itemAmount == 1)
             {
                 foreach (var item in _items)
                 {
@@ -45,43 +45,57 @@ namespace No_Gifts_By_Santa.MVVM.Model
                     if(item.Color == Color)
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
 
                     if (item.Category == Category)
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
                     if(item.AgeGroup == AgeGroup)
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
                     if(item.Material == Material)
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
 
                     if (item.Usage == Usage)
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
+                        Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
 
                     switch (perfektCounter)
                     {
                         case 3:
-                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1); break;
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1); Preferences.Set("Normal", Preferences.Get("Normal", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+1); break;
                         case 4:
-                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 2); break;
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 2); Preferences.Set("Good", Preferences.Get("Good", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+2); break;
                         case 5:
-                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); break;
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); Preferences.Set("Perfekt", Preferences.Get("Perfekt", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+3); break;
                     }
                 }
                 _canvas.Clear();
-                _viewModel.GenerateRound(_canvas);
+                Preferences.Set("preparedGifts", Preferences.Get("preparedGifts", 0)+1);
+                if(_viewModel != null)
+                    _viewModel.GenerateRound(_canvas);
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Finished",
+                    "You got how it works, so start safing Christmas, Your shift will take from 9 AM to 8 PM, so huryy up!",
+                    "continue");
+                    await Application.Current.MainPage.Navigation.PopAsync();
+                }
             }
         }
     }

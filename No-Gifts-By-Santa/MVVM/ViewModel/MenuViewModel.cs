@@ -10,6 +10,13 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
     public class MenuViewModel : INotifyPropertyChanged
     {
         //Variables - Basic
+        public bool dragable
+        {
+            get => _dragable;
+            private set;
+        }
+
+        private bool _dragable;
         private double _buttonWidth;
         public double ButtonWidth
         {
@@ -58,6 +65,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         //Button Methods / ICommands
         private async void LevelButton(Button button)
         {
+            _dragable = true;
             Popup = new LevelView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
@@ -65,6 +73,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
         private async void CreditsButton(Button button)
         {
+            _dragable = true;
             Popup = new CreditsView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
@@ -72,6 +81,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
         private async void SettingsButton(Button button)
         {
+            _dragable = true;
             Popup = new SettingsView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
@@ -79,6 +89,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
         private async void TutorialButton(Button button)
         {
+            _dragable = false;
             Popup = new TutorialView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
@@ -87,6 +98,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
         private void ClosePopup(Button button)
         {
+            _dragable = true;
             PopupEnabled = false;
             OnPropertyChanged(nameof(PopupEnabled));
         }

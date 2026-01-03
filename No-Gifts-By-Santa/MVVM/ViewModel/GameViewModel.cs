@@ -7,9 +7,35 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
     public class GameViewModel : INotifyPropertyChanged
     {
         //Variables - Basic
+        private int level;
+        private int _preparedGifts;
+
+        //Clock Variables
         private clock _clock = new clock();
         private string _clockTime;
+        public string clockTime
+        {
+            get => _clockTime;
+            set => _clockTime = value;
+        }
 
+        //Progressbar Variables
+        public double Progress
+        {
+            get => _progressBar;
+            set => _progressBar = value;
+        }
+
+        private double _progressBar;
+
+        public string RemainingGifts
+        {
+            get => $"Remaining Gifs: {_remainingGifts}";
+            private set;
+        }
+        private int _remainingGifts;
+
+        //Displaying Lebkuchen Variables
         public string Lebkuchen
         {
             get => _lebkuchen;
@@ -17,11 +43,6 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
 
         private string _lebkuchen;
-        public string clockTime
-        {
-            get => _clockTime;
-            set => _clockTime = value;
-        }
 
         //Variables for transfering the Elements to the View
         public List<Item> items
@@ -51,12 +72,19 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         //Constructor
         public GameViewModel()
         {
+            Preferences.Set("earnings", 0);
+            Preferences.Set("preparedGifts", 0);
+            Preferences.Set("Normal", 0);
+            Preferences.Set("Good", 0);
+            Preferences.Set("Perfekt", 0);
             _clock.PropertyChanged += (s, e) =>
             {
                 if (e.PropertyName == nameof(_clock._hours) || e.PropertyName == nameof(_clock._minutes))
                 {
                     clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
                     OnPropertyChanged(nameof(clockTime));
+                    if(_clock._hours == 20)
+                        CheckforWonGame();
                 }
             };
             clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
@@ -66,7 +94,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
         //Method for picking items and the Gift box
         public void GenerateRound(AbsoluteLayout Canvas) => _GeneratePlayRound(Canvas);
-
+        public void InputLevel(int _level) => level = _level;
         public void ClearRound()
         {
             _items.Clear();
@@ -107,6 +135,14 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             // Clear old items first
             _items.Clear();
 
+            //Set progressbar
+            _preparedGifts = Preferences.Get("preparedGifts", 0);
+            _remainingGifts = _progressBar >= 1 ? 0 : level - _preparedGifts;
+            OnPropertyChanged(nameof(RemainingGifts));
+            _progressBar = ((double)_preparedGifts / level);
+            OnPropertyChanged(nameof(Progress));
+            
+
             _lebkuchen = Preferences.Get("Lebkuchen", 0).ToString();
             OnPropertyChanged(nameof(Lebkuchen));
             
@@ -141,6 +177,27 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 _canvas.Add(_items[i]);
                 AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(xPositions[i], yPositions[i], 80, 80));
             }
+        }
+
+        private void CheckforWonGame()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                if (_preparedGifts >= level)
+                {
+                    if(Preferences.Get("level", 1) == level)
+                        Preferences.Set("level", Preferences.Get("level", 1) +1);
+                    Preferences.Set("complete", true);
+                }
+                else
+                    Preferences.Set("complete", false);
+
+                await Application.Current!.MainPage!.DisplayAlert(
+                    Preferences.Get("complete", false) == true ? $"Day {level} commpleted" : $"Day {level} failed",
+                    $"Earned: {Preferences.Get("earnings", 0)}\n\nGifts:\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}",
+                    "continue");
+                await Application.Current.MainPage.Navigation.PopAsync();
+            });
         }
 
         //Basic Methods for INotifyPropertyChanged
