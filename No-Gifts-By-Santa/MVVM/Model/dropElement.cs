@@ -11,6 +11,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         private GameViewModel _viewModel;
         private List<Item> _items = new List<Item>();
         private int _itemAmount = 0;
+        private int _itemsPossible = 0;
 
         //Properties
         private string Color { get; set; }
@@ -19,10 +20,11 @@ namespace No_Gifts_By_Santa.MVVM.Model
         private string Material { get; set; }
         private string Usage { get; set; }
 
-        public dropElement(AbsoluteLayout canvas, GameViewModel _gameview, string color, string category, string ageGroup, string material, string usage) : base(canvas)
+        public dropElement(AbsoluteLayout canvas, GameViewModel _gameview, int itemsAmount, string color, string category, string ageGroup, string material, string usage) : base(canvas)
         {
             _canvas = canvas;
             _viewModel = _gameview;
+            _itemsPossible = itemsAmount;
             Color = color;
             Category = category;
             AgeGroup = ageGroup;
@@ -37,7 +39,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         {
             _items.Add(_item);
             _itemAmount++;
-            if(_itemAmount == 1)
+            if(_itemAmount == _itemsPossible)
             {
                 foreach (var item in _items)
                 {
@@ -55,7 +57,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
                         Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);
                         perfektCounter++;
                     }
-                    if(item.AgeGroup == AgeGroup)
+                    if(item.AgeGroup == AgeGroup || item.AgeGroup == "all")
                     {
                         Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1);
                         Preferences.Set("earnings", Preferences.Get("earnings", 0)+1);

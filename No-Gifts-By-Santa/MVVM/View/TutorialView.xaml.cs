@@ -28,7 +28,7 @@ public partial class TutorialView : ContentView
         _items.Add(allItems.orange(Canvas, _giftBoxDropElement));
         _items.Add(allItems.gingerbread(Canvas, _giftBoxDropElement));
         _items.Add(allItems.Candy_2(Canvas, _giftBoxDropElement));
-        _items.Add(allItems.Ring(Canvas, _giftBoxDropElement));
+        _items.Add(allItems.ring1(Canvas, _giftBoxDropElement));
         _items.Add(allItems.Dildo(Canvas, _giftBoxDropElement));
         _items.Add(allItems.Axe(Canvas, _giftBoxDropElement));
         _items.Add(allItems.Hat(Canvas, _giftBoxDropElement));

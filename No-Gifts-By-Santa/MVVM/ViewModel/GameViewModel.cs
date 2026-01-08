@@ -118,14 +118,12 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         {
             if (_items.Count == 0) return;
             
-            double[] xPositionsBase = { 750, 900, 1050, 1200, 750, 900, 1050, 1200, 750, 900, 1050, 1200 };
-            double[] yPositionsBase = { 400, 430, 470, 440, 570, 530, 600, 560, 750, 780, 720, 790 };
             double size = 80 * Math.Min(scaleX, scaleY);
             
-            for (int i = 0; i < _items.Count && i < xPositionsBase.Length; i++)
+            for (int i = 0; i < _items.Count; i++)
             {
-                double x = xPositionsBase[i] * scaleX;
-                double y = yPositionsBase[i] * scaleY;
+                double x = new Random().Next(700, 1500) * scaleX;
+                double y = new Random().Next(400, 800) * scaleY;
                 AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(x, y, size, size));
             }
         }
@@ -158,24 +156,26 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             _items.Add(allItems.orange(_canvas, _giftBox));
             _items.Add(allItems.gingerbread(_canvas, _giftBox));
             _items.Add(allItems.Candy_2(_canvas, _giftBox));
-            _items.Add(allItems.Ring(_canvas, _giftBox));
+            _items.Add(allItems.ring1(_canvas, _giftBox));
             _items.Add(allItems.Dildo(_canvas, _giftBox));
             _items.Add(allItems.Axe(_canvas, _giftBox));
             _items.Add(allItems.Hat(_canvas, _giftBox));
             _items.Add(allItems.jar(_canvas, _giftBox));
+            _items.Add(allItems.hat2(_canvas, _giftBox));
+            _items.Add(allItems.money1(_canvas, _giftBox));
+            _items.Add(allItems.money2(_canvas, _giftBox));
+            _items.Add(allItems.heyheyhey(_canvas, _giftBox));
+            _items.Add(allItems.ring2(_canvas, _giftBox));
+            _items.Add(allItems.carrot(_canvas, _giftBox));
             
             // Add gift box to the canvas - left bottom table area
             _canvas.Add(_giftBox);
             AbsoluteLayout.SetLayoutBounds(_giftBox, new Rect(280, 600, 120, 120));
-            
-            // Add items to the canvas - distributed in right table area (better spacing)
-            double[] xPositions = { 750, 900, 1050, 1200, 750, 900, 1050, 1200, 750, 900, 1050, 1200 };
-            double[] yPositions = { 400, 430, 470, 440, 570, 530, 600, 560, 750, 780, 720, 790 };
-            
-            for (int i = 0; i < _items.Count && i < xPositions.Length; i++)
+        
+            for (int i = 0; i < _items.Count; i++)
             {
                 _canvas.Add(_items[i]);
-                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(xPositions[i], yPositions[i], 80, 80));
+                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(new Random().Next(700, 1600), new Random().Next(400, 800), 80, 80));
             }
         }
 
