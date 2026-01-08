@@ -19,7 +19,6 @@
         public string Usage { get; set; }
         
         //Other Variables
-        private bool _insidePackage = false;
         public Item(AbsoluteLayout canvas, dropElement dropElement, string color, string category, string agegroup, string material, string usage, string source) : base(canvas)
         {
             this.HeightRequest = 100;
@@ -60,7 +59,6 @@
             {
                 _canvas.Children.Remove(this);
                 _giftBoxDropElement.CaptureItem(this);
-                _insidePackage = true;
             }
         }
     }
