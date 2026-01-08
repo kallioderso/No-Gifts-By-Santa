@@ -30,7 +30,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
 
         private async Task TimeLoop()
         {
-            while(_hours < 20 || _minutes != 0)
+            while (_hours < 20)
             {
                 await Task.Delay(1000);
                 if (!_isPaused)
@@ -38,15 +38,17 @@ namespace No_Gifts_By_Santa.MVVM.Model
                     if (_minutes == 45)
                     {
                         _hours++;
-                        _minutes = 00;
+                        _minutes = 0;
                     }
                     else
                         _minutes += 15;
-                    
+
                     OnPropertyChanged(nameof(_hours));
                     OnPropertyChanged(nameof(_minutes));
                 }
             }
+            _finished = true;
+            OnPropertyChanged(nameof(_finished));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

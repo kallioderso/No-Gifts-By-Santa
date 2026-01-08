@@ -83,9 +83,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 {
                     clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
                     OnPropertyChanged(nameof(clockTime));
-                    if(_clock._hours == 20)
-                        CheckforWonGame();
                 }
+                if (e.PropertyName == nameof(_clock._finished))
+                    CheckforWonGame();
             };
             clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
             OnPropertyChanged(nameof(clockTime));
@@ -181,6 +181,8 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
         private void CheckforWonGame()
         {
+            if (!_clock._finished)
+                return;
             MainThread.BeginInvokeOnMainThread(async () =>
             {
                 if (_preparedGifts >= level)
