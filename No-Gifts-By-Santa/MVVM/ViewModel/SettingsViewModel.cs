@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Microsoft.Maui.Storage;
 using Button = Microsoft.Maui.Controls.Button;
 
 namespace No_Gifts_By_Santa.MVVM.ViewModel
@@ -14,6 +15,43 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         private bool _isSoundsPageVisible = true;
         private bool _isGraphicsPageVisible = false;
         private bool _isIdkPageVisible = false;
+
+        //Sliders data
+        public double VolumeTotal
+        {
+            get => Preferences.Get("VolumeTotal", 0d);
+            set => Preferences.Set("VolumeTotal", value);
+        }
+
+        public double VolumeMusic
+        {
+            get => Preferences.Get("VolumeMusic", 0d);
+            set => Preferences.Set("VolumeMusic", value);
+        }
+
+        public double VolumeSound
+        {
+            get => Preferences.Get("VolumeSound", 0d);
+            set => Preferences.Set("VolumeSound", value);
+        }
+
+        public double Resolution
+        {
+            get => Preferences.Get("Resolution", 0d);
+            set => Preferences.Set("Resolution", value);
+        }
+
+        public double Quality
+        {
+            get => Preferences.Get("Quality", 0d);
+            set => Preferences.Set("Quality", value);
+        }
+
+        public double FPSGap
+        {
+            get => Preferences.Get("FPSGap", 60d);
+            set => Preferences.Set("FPSGap", value);
+        }
 
         public bool IsSoundsPageVisible
         {
@@ -72,6 +110,19 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             IsSoundsPageVisible = SettingsPage == 1;
             IsGraphicsPageVisible = SettingsPage == 2;
             IsIdkPageVisible = SettingsPage == 3;
+
+            if (IsGraphicsPageVisible)
+            {
+                OnPropertyChanged(nameof(FPSGap));
+                OnPropertyChanged(nameof(Resolution));
+                OnPropertyChanged(nameof(Quality));
+            }
+            if (IsSoundsPageVisible)
+            {
+                OnPropertyChanged(nameof(VolumeTotal));
+                OnPropertyChanged(nameof(VolumeMusic));
+                OnPropertyChanged(nameof(VolumeSound));
+            }
         }
 
         //Basic Methods and Variables for ViewModel
