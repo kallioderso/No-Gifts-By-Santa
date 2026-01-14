@@ -16,7 +16,7 @@ public partial class GameView : ContentPage
         InitializeComponent();
         _viewModel = BindingContext as GameViewModel;
         _viewModel.InputLevel(_level);
-        _viewModel.GenerateRound(Canvas);
+        _viewModel.GenerateRound(Canvas, this.Width / 1920, this.Height / 1080);
     }
 
     protected override void OnSizeAllocated(double width, double height)
@@ -48,7 +48,7 @@ public partial class GameView : ContentPage
     {
         Canvas.Clear();
         _viewModel.ClearRound();
-        _viewModel.GenerateRound(Canvas);
+        _viewModel.GenerateRound(Canvas, this.Width / 1920.0, this.Height / 1080.0);
         
         // Trigger resize to reposition elements
         OnSizeAllocated(Width, Height);

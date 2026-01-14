@@ -90,7 +90,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
                 _canvas.Clear();
                 Preferences.Set("preparedGifts", Preferences.Get("preparedGifts", 0)+1);
                 if(_viewModel != null)
-                    _viewModel.GenerateRound(_canvas);
+                    _viewModel.GenerateRound(_canvas, _canvas.Width / 1920, _canvas.Height / 1080);
                 else
                 {
                     await Application.Current.MainPage.DisplayAlert("Finished",

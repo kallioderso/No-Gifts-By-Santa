@@ -93,7 +93,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
 
         //Method for picking items and the Gift box
-        public void GenerateRound(AbsoluteLayout Canvas) => _GeneratePlayRound(Canvas);
+        public void GenerateRound(AbsoluteLayout Canvas, double scaleX, double scaleY) => _GeneratePlayRound(Canvas, scaleX, scaleY);
         public void InputLevel(int _level) => level = _level;
         public void ClearRound()
         {
@@ -128,7 +128,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             }
         }
 
-        private void _GeneratePlayRound(AbsoluteLayout _canvas)
+        private void _GeneratePlayRound(AbsoluteLayout _canvas, double scaleX, double scaleY)
         {
             // Clear old items first
             _items.Clear();
@@ -175,7 +175,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             for (int i = 0; i < _items.Count; i++)
             {
                 _canvas.Add(_items[i]);
-                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(new Random().Next(700, 1600), new Random().Next(400, 800), 80, 80));
+                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(new Random().Next(700, 1600)*scaleX, new Random().Next(400, 800)*scaleY, 80, 80));
             }
         }
 
