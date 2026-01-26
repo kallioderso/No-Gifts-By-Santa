@@ -41,6 +41,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public ICommand _creditsView { get; }
         public ICommand _settingsView { get; }
         public ICommand _tutorialView { get; }
+        public ICommand _shopView { get; }
         public ICommand _closePopup { get; }
 
         public MenuViewModel()
@@ -49,6 +50,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             _creditsView = new Command<Button>(CreditsButton);
             _settingsView = new Command<Button>(SettingsButton);
             _tutorialView = new Command<Button>(TutorialButton);
+            _shopView = new Command<Button>(ShopButton);
             _closePopup = new Command<Button>(ClosePopup);
         }
         
@@ -91,6 +93,15 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         {
             _dragable = false;
             Popup = new TutorialView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
+        }
+
+        private async void ShopButton(Button button)
+        {
+            _dragable = true;
+            Popup = new ShopView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
             OnPropertyChanged(nameof(Popup));

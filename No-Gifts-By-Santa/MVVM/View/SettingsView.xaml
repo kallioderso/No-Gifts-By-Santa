@@ -3,8 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:No_Gifts_By_Santa.MVVM.ViewModel"
-             x:Class="No_Gifts_By_Santa.MVVM.View.SettingsView"
-             x:DataType="local:SettingsViewModel">
+             x:Class="No_Gifts_By_Santa.MVVM.View.SettingsView">
 
     <ContentView.BindingContext>
         <local:SettingsViewModel/>
@@ -48,9 +47,9 @@
 
             <!-- Navigation Buttons -->
             <StackLayout HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="8">
-                <Button Text="◄" WidthRequest="20" HeightRequest="20" Command="{Binding _LeftPagCommand}"/>
+                <ImageButton Source="left.png" WidthRequest="20" HeightRequest="20" Command="{Binding _LeftPagCommand}" BackgroundColor="Transparent"/>
                 <!--<Button Text="Save" WidthRequest="80" HeightRequest="20" Command="{Binding _SavePageSettingsCommand}"/> -->
-                <Button Text="►" WidthRequest="20" HeightRequest="20" Command="{Binding _RightPageCommand}"/>
+                <ImageButton Source="right.png" WidthRequest="20" HeightRequest="20" Command="{Binding _RightPageCommand}" BackgroundColor="Transparent"/>
             </StackLayout>
         </Grid>
     </ContentView.Content>
