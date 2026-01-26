@@ -150,23 +150,34 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(WishText));
             
             _items.Add(allItems.Bee(_canvas, _giftBox));
-            _items.Add(allItems.Candy(_canvas, _giftBox));
+            if (Preferences.Get("Candy1", false))
+                _items.Add(allItems.Candy(_canvas, _giftBox));
             _items.Add(allItems.mug1(_canvas, _giftBox));
             _items.Add(allItems.mug2(_canvas, _giftBox));
-            _items.Add(allItems.orange(_canvas, _giftBox));
-            _items.Add(allItems.gingerbread(_canvas, _giftBox));
-            _items.Add(allItems.Candy_2(_canvas, _giftBox));
+            if (Preferences.Get("Orange", false))
+                _items.Add(allItems.orange(_canvas, _giftBox));
+            if (Preferences.Get("Candy3", false))
+                _items.Add(allItems.gingerbread(_canvas, _giftBox));
+            if (Preferences.Get("Candy2", false))
+                _items.Add(allItems.Candy_2(_canvas, _giftBox));
             _items.Add(allItems.ring1(_canvas, _giftBox));
             _items.Add(allItems.Dildo(_canvas, _giftBox));
             _items.Add(allItems.Axe(_canvas, _giftBox));
             _items.Add(allItems.Hat(_canvas, _giftBox));
             _items.Add(allItems.jar(_canvas, _giftBox));
-            _items.Add(allItems.hat2(_canvas, _giftBox));
+            if (Preferences.Get("Hayhat", false))
+                _items.Add(allItems.hat2(_canvas, _giftBox));
             _items.Add(allItems.money1(_canvas, _giftBox));
             _items.Add(allItems.money2(_canvas, _giftBox));
-            _items.Add(allItems.heyheyhey(_canvas, _giftBox));
+            if (Preferences.Get("Heyheyhey", false))
+                _items.Add(allItems.heyheyhey(_canvas, _giftBox));
             _items.Add(allItems.ring2(_canvas, _giftBox));
-            _items.Add(allItems.carrot(_canvas, _giftBox));
+            if (Preferences.Get("Carrot", false))
+                _items.Add(allItems.carrot(_canvas, _giftBox));
+            if (Preferences.Get("Apple", false))
+                _items.Add(allItems.apple(_canvas, _giftBox));
+            if (Preferences.Get("Cherry", false))
+                _items.Add(allItems.cherry(_canvas, _giftBox));
             
             // Add gift box to the canvas - left bottom table area
             _canvas.Add(_giftBox);

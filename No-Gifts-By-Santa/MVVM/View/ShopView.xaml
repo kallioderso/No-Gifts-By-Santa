@@ -13,80 +13,41 @@
         <Grid>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
                 <Image Source="gingerbread.png" HeightRequest="30" WidthRequest="30" />
-                <Label Text="{Binding _gingerBread}" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                <Label Text="{Binding Gingerbreads}" TextColor="White" FontSize="20" FontAttributes="Bold" />
             </StackLayout>
             <ScrollView Margin="50,0,0,0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Candy1}" Command="{Binding BuyCandy1}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Candy2}" Command="{Binding BuyCandy2}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Gingerbread}" Command="{Binding BuyGingerbread}" HeightRequest="150" WidthRequest="150" />
                         <StackLayout Orientation="Vertical" VerticalOptions="Center">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
-                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
+                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="50"/>
                             </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Orange}" Command="{Binding BuyOrange}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Apple}" Command="{Binding BuyApple}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Cherry}" Command="{Binding BuyCherry}" HeightRequest="150" WidthRequest="150" />
                         <StackLayout Orientation="Vertical" VerticalOptions="Center">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
-                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
+                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="100"/>
                             </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Heyhat}" Command="{Binding BuyHeyhat}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Hayhayhay}" Command="{Binding BuyHayhayhay}" HeightRequest="150" WidthRequest="150" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Carrot}" Command="{Binding BuyCarrot}" HeightRequest="150" WidthRequest="150" />
                         <StackLayout Orientation="Vertical" VerticalOptions="Center">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
                                 <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
                             </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
-                        </StackLayout>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
-                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
-                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
-                            </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
-                        </StackLayout>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
-                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
-                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
-                            </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
-                        </StackLayout>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="pack_item_1.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_2.png" HeightRequest="150" WidthRequest="150" />
-                        <Image Source="pack_item_3.png" HeightRequest="150" WidthRequest="150" />
-                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
-                                <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
-                            </StackLayout>
-                            <Image Source="buy.png" WidthRequest="120" />
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
