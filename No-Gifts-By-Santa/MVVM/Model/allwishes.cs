@@ -71,8 +71,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_1(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Dave\nI am 7 years old.\n I really like the color red,\nand all sort of sweets";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "sweet", "kids", "candy", "hunger");
+                "My name is Leonie,\ni like cuddle-toys.\nespecially those which\nare yellow and black";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "cuddle-toy", "kids", "fabric", "fun");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -80,8 +80,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_2(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Basti\nI am 24 years old.\n I really like the color blue,\nand i like to drink coffee";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "blue", "kitchen", "adult", "porcelain", "allday");
+                "I am Liam\nand i really love\nchristmas sweets";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "sweet", "all", "candy", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -89,17 +89,16 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_3(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Pascal\nI am 18 years old.\n I really like the color green,\nand i like to drink tee";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "kitchen", "adult", "porcelain", "allday");
+                "Hello, Bernd my name.\nI love coffee\nand the colour\nblue";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "blue", "kitchen", "adult", "porcelain", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_4(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish =
-                "Hello, my name is Mariella,\n i really like fluffy things,\n my favorite Color is yellow";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "cuddle-toy", "kids", "fabric", "fun");
+            string _wish = "called Katrin\nand i prefere\ndrinking tee every\nday.\nI love the colour\ngreen, its the\nbest one";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "kitchen", "adult", "porcelain", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -107,24 +106,24 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_5(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Grandma Ute,\ni love to put vegetables\ninto jars";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "white", "kitchen", "all", "glas", "allday");
+                "My name is Pascal.\nI enjoy eating\ntropical fruits\nduring christmas.\nOranges are my\nfavourites";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "orange", "food", "all", "fruit", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_6(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Katring,\nthere is nothing i like more\nthan all kind of hats\n";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "red", "accesory", "adult", "fabric", "wearing");
+            string _wish = "I Am Mariella and\ni like gingerbread\nduring december and\nchristmas time.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "brown", "sweet", "kids", "candy", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_7(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is farmer Bob,\n sadly all my tools broke.\ni loved to wear my old\nhay hat";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "yellow", "accesory", "adult", "hay", "wearing");
+            string _wish = "Hello, Ralf my name,\ni eat blue candys\n every day, apart\nfrom that i like\n blue in general";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "blue", "sweet", "all", "candy", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -132,8 +131,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_8(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Edith,\ni like all kind of shiny things\nas more worth they have\n as better, hehehe.";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "yellow", "accesory", "adult", "gold", "wearing");
+                "called Hela.\ni love all kind\nof shiny, golden\nthings, but silver\nis fine as well.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "accesory", "adult", "gold", "wearing");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -141,8 +140,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_9(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Paul\nI am 25 years old.\ni really like all sorts of\n sex toys.";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "pink", "toy", "adult", "silicon", "sec");
+                "Hello, my name is\nsebastian, i like\n to do things with\nwood, but sadly did\nmy axe broke a\nwhile ago.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "tools", "adult", "metal", "crafting");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -150,8 +149,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_10(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Daniel\n i really like all kind\nof food and especially\n fruits and vegetables";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "orange", "food", "all", "vegetable", "hunger");
+                "Hohoho, i am basti.\ncurrently i am a\ngrocery store santa\nbut i am missing\nmy costume :(";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "accesory", "adult", "fabric", "wearing");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -159,32 +158,32 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_11(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Anna-Lena\n and i really like sweets,\nespecially those which are\nblue and multi colored";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "blue", "sweet", "all", "candy", "hunger");
+                "called reinhilde.\ni love putting herbs\ninto jars, but\nall mine are\nfilled.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "white", "kitchen", "all", "glas", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_12(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Emma,\nI really love to go out\nshopping";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "green", "shoping", "all", "metal", "allday");
+            string _wish = "Edith my name.\ni like to wear\ngray and silver\nrings all day long.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "gray", "accesory", "adult", "silver", "wearing");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_13(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Bea\nand i am obsessed with\ngreen things";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "green", "kitchen", "adult", "porcelain", "allday");
+            string _wish = "Hey there, Anna-Lena\nmy name. i love\n to go out\nshopping with coins.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "shopinh", "all", "metal", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_14(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Rony\nI love yellow things";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "yellow", "cuddle-toy", "kids", "fabric", "fun");
+            string _wish = "I Am Paul and\ni like to buy\nclothes, sadly its\nreally expensiv.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "shoping", "all", "paper", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -192,72 +191,72 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_15(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Petra\nI am 44 years old.\n I need green things!\nGreen is the new black!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "kitchen", "adult", "porcelain", "allday");
+                "Hello, my name is\nMarvin, i like\nNature and clothes\nmade directly out\nof farmers supplys.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "accesory", "adult", "hay", "farming");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_16(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Kevin\nI am 5 years old.\n I love sweet treats!\nCan you give me candy?";
-            dropElement _drop = new dropElement(view, _viewModel, 2, "red", "sweet", "all", "candy", "hunger");
+            string _wish = "Hey there, i get\ncalled Jusut.\nI Am an farmer,\ncould you give me\nnew tools?";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "gray", "tools", "adult", "metal", "farming");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_17(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Bernd\nI am 67 years old.\n I need jars for my\npreserved goods!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "white", "kitchen", "all", "glas", "allday");
+            string _wish = "num num num\n..... carrots, i\nlike eating carrots\n.... num num num.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "orange", "food", "all", "vegetables", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_18(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Thor\nI am 29 years old.\n Axes are awesome!\nI'm a lumberjack!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "tools", "adult", "metal", "crafting");
+            string _wish = "called Birgit.\ni love eating fresh\nfruits, especially\nnice, fresh, green\napples, with all\nthere juice.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "food", "all", "fruit", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_19(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Bärbel\nI am 52 years old.\n I need a new hat!\nThe old one is worn out!\nI love the color yellow";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "accesory", "all", "hay", "wearing");
+            string _wish = "Sakura my name,\ni like all kind\nof berrys and fruits.\nbut even more do\ni like cherrys.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "food", "all", "fruit", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_20(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Maximilian\nI am 47 years old.\n Give me gold!\nI want to shine!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "accesory", "adult", "gold", "wearing");
+            string _wish = "Lukas my name.\ni love hay hats,\nthey are really\nstylish.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "accesory", "adult", "hay", "farming");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_21(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Len\nI am 33 years old.\n Something for my\nprivate collection!\n(prefered dildos)";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "pink", "toy", "adult", "silicon", "sec");
+            string _wish = "called Lena.\ni love all kind\nof kitchen stuff,\nsuch as green\nmugs or plates.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "green", "kitchen", "adult", "porcelain", "allday");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_22(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Clara\nI am 8 years old.\n I love gingerbread!\nEspecially at Christmas!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "brown", "sweet", "kids", "candy", "hunger");
+            string _wish = "My name is jessica.\nI really love\nsweet, healthy and\nred food.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "red", "food", "all", "fruit", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
 
         public static (dropElement drop, string wish) wish_23(AbsoluteLayout view, GameViewModel _viewModel)
         {
-            string _wish = "Hello, my name is Denise\nI am 26 years old.\n MORE CANDY!\nI can't get enough!";
-            dropElement _drop = new dropElement(view, _viewModel, 3, "blue", "sweet", "all", "candy", "hunger");
+            string _wish = "I Am Jana and\ni love healthy,\norange vegetables.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "orange", "food", "all", "vegetables", "hunger");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }
@@ -265,8 +264,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static (dropElement drop, string wish) wish_24(AbsoluteLayout view, GameViewModel _viewModel)
         {
             string _wish =
-                "Hello, my name is Robert\nI am 51 years old.\n Fruits make me happy!\nOranges are the best!";
-            dropElement _drop = new dropElement(view, _viewModel, 1, "orange", "food", "all", "fruit", "hunger");
+                "Hi, my name is\nAnna. i love\nthese sweet bee\ncuddle-toys, that\nare so popular\nthese days.";
+            dropElement _drop = new dropElement(view, _viewModel, 1, "yellow", "cuddle-toy", "kids", "fabric", "fun");
             _drop.Source = $"gift_{new Random().Next(1, 4)}.png";
             return (_drop, _wish);
         }

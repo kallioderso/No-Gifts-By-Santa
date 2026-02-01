@@ -23,7 +23,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static Item money1(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "shoping", "all", "metal", "allday", "money_1.png");
         public static Item money2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "shoping", "all", "paper", "allday", "money_2.png");
         public static Item hat2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "accesory", "adult", "hay", "farming", "hat_2.png");
-        public static Item heyheyhey(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "gray", "kitchen", "adult", "metal", "farming", "heyheyhey.png");
+        public static Item heyheyhey(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "gray", "tools", "adult", "metal", "farming", "heyheyhey.png");
         public static Item carrot(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "vegetables", "hunger", "carrot.png");
         public static Item apple(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "food", "all", "fruit", "hunger", "apple.png");
         public static Item cherry(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "food", "all", "fruit", "hunger", "cherry.png");
