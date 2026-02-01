@@ -29,7 +29,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
             Category = category;
             AgeGroup = ageGroup;
             Material = material;
-            Usage = material;
+            Usage = usage;
         }
 
         // Methods for Storing items
@@ -79,6 +79,12 @@ namespace No_Gifts_By_Santa.MVVM.Model
 
                     switch (perfektCounter)
                     {
+                        case 0:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 0); Preferences.Set("Worse", Preferences.Get("Worse", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+0); break;
+                        case 1:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 0); Preferences.Set("Bad", Preferences.Get("Bad", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+0); break;
+                        case 2:
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 0); Preferences.Set("usable", Preferences.Get("usable", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+0); break;
                         case 3:
                             Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 1); Preferences.Set("Normal", Preferences.Get("Normal", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+1); break;
                         case 4:
@@ -86,6 +92,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
                         case 5:
                             Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); Preferences.Set("Perfekt", Preferences.Get("Perfekt", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+3); break;
                     }
+
+                    Preferences.Set("preparedItem", Preferences.Get("preparedItem", 0) + 1);
                 }
                 _canvas.Clear();
                 Preferences.Set("preparedGifts", Preferences.Get("preparedGifts", 0)+1);

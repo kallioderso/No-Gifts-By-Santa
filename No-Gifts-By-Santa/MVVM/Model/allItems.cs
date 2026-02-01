@@ -15,7 +15,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static Item gingerbread(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "brown", "sweet", "kids", "candy", "hunger", "gingerbread.png");
         public static Item Candy_2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "blue", "sweet", "all", "candy", "hunger", "candy_2.png");
         public static Item ring1(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "accesory", "adult", "gold", "wearing", "ring_1.png");
-        public static Item Dildo(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "pink", "toy", "adult", "silicon", "sec", "dildo.png");
+        //public static Item Dildo(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "pink", "toy", "adult", "silicon", "sec", "dildo.png");
         public static Item Axe(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "tools", "adult", "metal", "crafting", "axe.png");
         public static Item Hat(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "accesory", "all", "fabric", "wearing", "hat.png");
         public static Item jar(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "white", "kitchen", "all", "glas", "allday", "jar.png");

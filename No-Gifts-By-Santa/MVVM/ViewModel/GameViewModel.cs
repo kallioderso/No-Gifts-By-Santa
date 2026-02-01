@@ -73,7 +73,11 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public GameViewModel()
         {
             Preferences.Set("earnings", 0);
+            Preferences.Set("preparedItem", 0);
             Preferences.Set("preparedGifts", 0);
+            Preferences.Set("Worse", 0);
+            Preferences.Set("Bad", 0);
+            Preferences.Set("usable", 0);
             Preferences.Set("Normal", 0);
             Preferences.Set("Good", 0);
             Preferences.Set("Perfekt", 0);
@@ -161,7 +165,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             if (Preferences.Get("Candy2", false))
                 _items.Add(allItems.Candy_2(_canvas, _giftBox));
             _items.Add(allItems.ring1(_canvas, _giftBox));
-            _items.Add(allItems.Dildo(_canvas, _giftBox));
+            //_items.Add(allItems.Dildo(_canvas, _giftBox));
             _items.Add(allItems.Axe(_canvas, _giftBox));
             _items.Add(allItems.Hat(_canvas, _giftBox));
             _items.Add(allItems.jar(_canvas, _giftBox));
@@ -207,7 +211,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
                 await Application.Current!.MainPage!.DisplayAlert(
                     Preferences.Get("complete", false) == true ? $"Day {level} commpleted" : $"Day {level} failed",
-                    $"Earned: {Preferences.Get("earnings", 0)}\n\nGifts:\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}",
+                    $"Prepared Items: {Preferences.Get("preparedItem", 0)} \nPrepared Gifts: {Preferences.Get("preparedGifts", 0)}\nEarned gingerbread: {Preferences.Get("earnings", 0)}\n\nGifts:\nWorse: {Preferences.Get("Worse", 0)} \nBad: {Preferences.Get("Bad", 0)} \nusable: {Preferences.Get("usable", 0)}\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}",
                     "continue");
                 await Application.Current.MainPage.Navigation.PopAsync();
             });
