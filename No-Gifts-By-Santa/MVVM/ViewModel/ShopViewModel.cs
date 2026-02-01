@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
+using No_Gifts_By_Santa.MVVM.Model;
 
 namespace No_Gifts_By_Santa.MVVM.ViewModel
 {
@@ -114,36 +115,45 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
         private void RefreshImages()
         {
-            Candy1 = $"candy_1{(Preferences.Get("Candy1", false) ? "" : "_off")}.png";
-            Candy2 = $"candy_2{(Preferences.Get("Candy2", false) ? "" : "_off")}.png";
-            Gingerbread = $"gingerbread{(Preferences.Get("Candy3", false) ? "" : "_off")}.png";
+            Candy1 = $"candy_1{(Preferences.Get("CandyCane", false) ? "" : "_off")}.png";
+            Candy2 = $"candy_2{(Preferences.Get("BonBon", false) ? "" : "_off")}.png";
+            Gingerbread = $"gingerbread{(Preferences.Get("GingerbreadMan", false) ? "" : "_off")}.png";
             Orange = $"orange{(Preferences.Get("Orange", false) ? "" : "_off")}.png";
             Apple = $"apple{(Preferences.Get("Apple", false) ? "" : "_off")}.png";
             Cherry = $"cherry{(Preferences.Get("Cherry", false) ? "" : "_off")}.png";
             Heyhat = $"hat_2{(Preferences.Get("Hayhat", false) ? "" : "_off")}.png";
-            Hayhayhay = $"heyheyhey{(Preferences.Get("Heyheyhey", false) ? "" : "_off")}.png";
+            Hayhayhay = $"heyheyhey{(Preferences.Get("pitchfork", false) ? "" : "_off")}.png";
             Carrot = $"carrot{(Preferences.Get("Carrot", false) ? "" : "_off")}.png";
         }
 
-        private void BuyCandy1Execute() => TryBuy("Candy1", 50);
-        private void BuyCandy2Execute() => TryBuy("Candy2", 50);
-        private void BuyGingerbreadExecute() => TryBuy("Candy3", 50);
-        private void BuyOrangeExecute() => TryBuy("Orange", 100);
-        private void BuyAppleExecute() => TryBuy("Apple", 100);
-        private void BuyCherryExecute() => TryBuy("Cherry", 100);
-        private void BuyHeyhatExecute() => TryBuy("Hayhat", 200);
-        private void BuyHayhayhayExecute() => TryBuy("Heyheyhey", 200);
-        private void BuyCarrotExecute() => TryBuy("Carrot", 200);
+        private void BuyCandy1Execute() => TryBuy("CandyCane", 50, allItems.Candy(null, null));
+        private void BuyCandy2Execute() => TryBuy("BonBon", 50, allItems.Candy_2(null, null));
+        private void BuyGingerbreadExecute() => TryBuy("GingerbreadMan", 50, allItems.gingerbread(null, null));
+        private void BuyOrangeExecute() => TryBuy("Orange", 100, allItems.orange(null, null));
+        private void BuyAppleExecute() => TryBuy("Apple", 100, allItems.apple(null, null));
+        private void BuyCherryExecute() => TryBuy("Cherry", 100, allItems.cherry(null, null));
+        private void BuyHeyhatExecute() => TryBuy("Hayhat", 200, allItems.hat2(null, null));
+        private void BuyHayhayhayExecute() => TryBuy("pitchfork", 200, allItems.heyheyhey(null, null));
+        private void BuyCarrotExecute() => TryBuy("Carrot", 200, allItems.carrot(null, null));
 
-        private void TryBuy(string preferenceKey, int cost)
+        private async void TryBuy(string preferenceKey, int cost, Item item)
         {
             if (Preferences.Get(preferenceKey, false))
+            {
+                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "close");
                 return;
+            }
 
             var balance = Preferences.Get("Lebkuchen", 0);
             if (balance < cost)
+            {
+                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "Not Enough Gingerbread");
                 return;
+            }
 
+            var buy = await Application.Current.MainPage.DisplayAlert(preferenceKey,  $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "Buy", "close");
+            if(!buy)
+                return;
             var updatedBalance = balance - cost;
             Preferences.Set("Lebkuchen", updatedBalance);
             Preferences.Set(preferenceKey, true);

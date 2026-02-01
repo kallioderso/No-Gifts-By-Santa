@@ -154,15 +154,15 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(WishText));
             
             _items.Add(allItems.Bee(_canvas, _giftBox));
-            if (Preferences.Get("Candy1", false))
+            if (Preferences.Get("CandyCane", false))
                 _items.Add(allItems.Candy(_canvas, _giftBox));
             _items.Add(allItems.mug1(_canvas, _giftBox));
             _items.Add(allItems.mug2(_canvas, _giftBox));
             if (Preferences.Get("Orange", false))
                 _items.Add(allItems.orange(_canvas, _giftBox));
-            if (Preferences.Get("Candy3", false))
+            if (Preferences.Get("GingerbreadMan", false))
                 _items.Add(allItems.gingerbread(_canvas, _giftBox));
-            if (Preferences.Get("Candy2", false))
+            if (Preferences.Get("BonBon", false))
                 _items.Add(allItems.Candy_2(_canvas, _giftBox));
             _items.Add(allItems.ring1(_canvas, _giftBox));
             //_items.Add(allItems.Dildo(_canvas, _giftBox));
@@ -173,7 +173,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 _items.Add(allItems.hat2(_canvas, _giftBox));
             _items.Add(allItems.money1(_canvas, _giftBox));
             _items.Add(allItems.money2(_canvas, _giftBox));
-            if (Preferences.Get("Heyheyhey", false))
+            if (Preferences.Get("pitchfork", false))
                 _items.Add(allItems.heyheyhey(_canvas, _giftBox));
             _items.Add(allItems.ring2(_canvas, _giftBox));
             if (Preferences.Get("Carrot", false))
