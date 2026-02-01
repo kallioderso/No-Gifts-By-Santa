@@ -13,8 +13,8 @@
             <Grid>
                 <Image Aspect="Fill" HorizontalOptions="Fill" VerticalOptions="Fill" Source="game_menu.png"/>
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                    <ProgressBar ProgressColor="#a997d7" BackgroundColor="#E0E8FF" Progress="{Binding Progress}" HeightRequest="20" WidthRequest="300"/>
-                    <Label TextColor="#a997d7" FontSize="12" Text="{Binding RemainingGifts}"/>
+                    <ProgressBar ProgressColor="#f6e8e8" BackgroundColor="#ffffff" Progress="{Binding Progress}" HeightRequest="40" WidthRequest="300"/>
+                    <Label TextColor="#f6e8e8" FontSize="20" FontAttributes="Bold" Text="{Binding RemainingGifts}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
                     <Image Source="gingerbread.png" HeightRequest="30"/>
