@@ -35,6 +35,32 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public ICommand Day23 { get; }
         public ICommand Day24 { get; }
 
+        //Variables for Level Images
+        public string Level1 { get; }
+        public string Level2 { get; }
+        public string Level3 { get; }
+        public string Level4 { get; }
+        public string Level5 { get; }
+        public string Level6 { get; }
+        public string Level7 { get; }
+        public string Level8 { get; }
+        public string Level9 { get; }
+        public string Level10 { get; }
+        public string Level11 { get; }
+        public string Level12 { get; }
+        public string Level13 { get; }
+        public string Level14 { get; }
+        public string Level15 { get; }
+        public string Level16 { get; }
+        public string Level17 { get; }
+        public string Level18 { get; }
+        public string Level19 { get; }
+        public string Level20 { get; }
+        public string Level21 { get; }
+        public string Level22 { get; }
+        public string Level23 { get; }
+        public string Level24 { get; }
+
         //Constructor
         public LevelViewModel()
         {
@@ -62,6 +88,30 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             Day22 = new Command<ImageButton>(SelectLevel22);
             Day23 = new Command<ImageButton>(SelectLevel23);
             Day24 = new Command<ImageButton>(SelectLevel24);
+            Level1 = $"level_calender_1{(Preferences.Get("level", 1) >= 1 ? "" : "_off")}.png";
+            Level2 = $"level_calender_2{(Preferences.Get("level", 1) >= 2 ? "" : "_off")}.png";
+            Level3 = $"level_calender_3{(Preferences.Get("level", 1) >= 3 ? "" : "_off")}.png";
+            Level4 = $"level_calender_4{(Preferences.Get("level", 1) >= 4 ? "" : "_off")}.png";
+            Level5 = $"level_calender_5{(Preferences.Get("level", 1) >= 5 ? "" : "_off")}.png";
+            Level6 = $"level_calender_6{(Preferences.Get("level", 1) >= 6 ? "" : "_off")}.png";
+            Level7 = $"level_calender_7{(Preferences.Get("level", 1) >= 7 ? "" : "_off")}.png";
+            Level8 = $"level_calender_8{(Preferences.Get("level", 1) >= 8 ? "" : "_off")}.png";
+            Level9 = $"level_calender_9{(Preferences.Get("level", 1) >= 9 ? "" : "_off")}.png";
+            Level10 = $"level_calender_10{(Preferences.Get("level", 1) >= 10 ? "" : "_off")}.png";
+            Level11 = $"level_calender_11{(Preferences.Get("level", 1) >= 11 ? "" : "_off")}.png";
+            Level12 = $"level_calender_12{(Preferences.Get("level", 1) >= 12 ? "" : "_off")}.png";
+            Level13 = $"level_calender_13{(Preferences.Get("level", 1) >= 13 ? "" : "_off")}.png";
+            Level14 = $"level_calender_14{(Preferences.Get("level", 1) >= 14 ? "" : "_off")}.png";
+            Level15 = $"level_calender_15{(Preferences.Get("level", 1) >= 15 ? "" : "_off")}.png";
+            Level16 = $"level_calender_16{(Preferences.Get("level", 1) >= 16 ? "" : "_off")}.png";
+            Level17 = $"level_calender_17{(Preferences.Get("level", 1) >= 17 ? "" : "_off")}.png";
+            Level18 = $"level_calender_18{(Preferences.Get("level", 1) >= 18 ? "" : "_off")}.png";
+            Level19 = $"level_calender_19{(Preferences.Get("level", 1) >= 19 ? "" : "_off")}.png";
+            Level20 = $"level_calender_20{(Preferences.Get("level", 1) >= 20 ? "" : "_off")}.png";
+            Level21 = $"level_calender_21{(Preferences.Get("level", 1) >= 21 ? "" : "_off")}.png";
+            Level22 = $"level_calender_22{(Preferences.Get("level", 1) >= 22 ? "" : "_off")}.png";
+            Level23 = $"level_calender_23{(Preferences.Get("level", 1) >= 23 ? "" : "_off")}.png";
+            Level24 = $"level_calender_24{(Preferences.Get("level", 1) >= 24 ? "" : "_off")}.png";
         }
 
 
