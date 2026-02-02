@@ -17,9 +17,9 @@
         <Nullable>enable</Nullable>
 
         <ApplicationTitle>No-Gifts-By-Santa</ApplicationTitle>
-        <ApplicationId>com.companyname.nogiftsbysanta</ApplicationId>
+        <ApplicationId>github.com/kallioderso</ApplicationId>
 
-        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
 
         <WindowsPackageType>None</WindowsPackageType>
