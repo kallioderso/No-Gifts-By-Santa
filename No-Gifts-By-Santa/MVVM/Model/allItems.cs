@@ -27,5 +27,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static Item carrot(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "vegetables", "hunger", "carrot.png");
         public static Item apple(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "food", "all", "fruit", "hunger", "apple.png");
         public static Item cherry(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "food", "all", "fruit", "hunger", "cherry.png");
+        public static Item vodca(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "black", "drinking", "adult", "alcohole", "fun", "vodca.png");
+        public static Item wine(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "drinking", "adult", "alcohole", "fun", "wine.png");
+        public static Item bear(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "drinking", "adult", "alcohole", "fun", "bear.png");
     }
 }

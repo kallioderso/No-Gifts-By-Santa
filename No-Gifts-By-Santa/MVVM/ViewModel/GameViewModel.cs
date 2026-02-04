@@ -182,7 +182,12 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 _items.Add(allItems.apple(_canvas, _giftBox));
             if (Preferences.Get("Cherry", false))
                 _items.Add(allItems.cherry(_canvas, _giftBox));
-            
+            if (Preferences.Get("Vodca", false))
+                _items.Add(allItems.vodca(_canvas, _giftBox));
+            if (Preferences.Get("Wine", false))
+                _items.Add(allItems.wine(_canvas, _giftBox));
+            if (Preferences.Get("Bear", false))
+                _items.Add(allItems.bear(_canvas, _giftBox));
             // Add gift box to the canvas - left bottom table area
             _canvas.Add(_giftBox);
             AbsoluteLayout.SetLayoutBounds(_giftBox, new Rect(280*scaleX, 720*scaleY, 200*scaleX, 200*scaleX));

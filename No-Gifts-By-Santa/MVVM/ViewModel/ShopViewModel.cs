@@ -1,26 +1,12 @@
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Storage;
 using No_Gifts_By_Santa.MVVM.Model;
 
 namespace No_Gifts_By_Santa.MVVM.ViewModel
 {
     public class ShopViewModel : INotifyPropertyChanged
     {
-        private string _gingerbreads;
-        private string _candy1;
-        private string _candy2;
-        private string _gingerbread;
-        private string _orange;
-        private string _apple;
-        private string _cherry;
-        private string _heyhat;
-        private string _hayhayhay;
-        private string _carrot;
-
         public ICommand BuyCandy1 { get; }
         public ICommand BuyCandy2 { get; }
         public ICommand BuyGingerbread { get; }
@@ -34,62 +20,80 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         // Item images
         public string Candy1
         {
-            get => _candy1;
-            private set => SetField(ref _candy1, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Candy2
         {
-            get => _candy2;
-            private set => SetField(ref _candy2, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Gingerbread
         {
-            get => _gingerbread;
-            private set => SetField(ref _gingerbread, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Orange
         {
-            get => _orange;
-            private set => SetField(ref _orange, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Apple
         {
-            get => _apple;
-            private set => SetField(ref _apple, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Cherry
         {
-            get => _cherry;
-            private set => SetField(ref _cherry, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Heyhat
         {
-            get => _heyhat;
-            private set => SetField(ref _heyhat, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Hayhayhay
         {
-            get => _hayhayhay;
-            private set => SetField(ref _hayhayhay, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Carrot
         {
-            get => _carrot;
-            private set => SetField(ref _carrot, value);
+            get;
+            private set => SetField(ref field, value);
+        }
+
+        public string Vodka
+        {
+            get;
+            private set => SetField(ref field, value);
+        }
+
+        public string Wine
+        {
+            get;
+            private set => SetField(ref field, value);
+        }
+
+        public string Bear
+        {
+            get;
+            private set => SetField(ref field, value);
         }
 
         public string Gingerbreads
         {
-            get => _gingerbreads;
-            private set => SetField(ref _gingerbreads, value);
+            get;
+            private set => SetField(ref field, value);
         }
 
         public ShopViewModel()
@@ -124,6 +128,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             Heyhat = $"hat_2{(Preferences.Get("Hayhat", false) ? "" : "_off")}.png";
             Hayhayhay = $"heyheyhey{(Preferences.Get("pitchfork", false) ? "" : "_off")}.png";
             Carrot = $"carrot{(Preferences.Get("Carrot", false) ? "" : "_off")}.png";
+            Vodka = $"vodka{(Preferences.Get("Vodka", false) ? "" : "_off")}.png";
+            Wine = $"wine{(Preferences.Get("Wine", false) ? "" : "_off")}.png";
+            Bear = $"bear{(Preferences.Get("Bear", false) ? "" : "_off")}.png";
         }
 
         private void BuyCandy1Execute() => TryBuy("CandyCane", 50, allItems.Candy(null, null));
@@ -135,6 +142,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         private void BuyHeyhatExecute() => TryBuy("Hayhat", 200, allItems.hat2(null, null));
         private void BuyHayhayhayExecute() => TryBuy("pitchfork", 200, allItems.heyheyhey(null, null));
         private void BuyCarrotExecute() => TryBuy("Carrot", 200, allItems.carrot(null, null));
+        private void BuyVodkaExecute() => TryBuy("Vodka", 250, allItems.vodca(null, null));
+        private void BuyWineExecute() => TryBuy("Wine", 250, allItems.wine(null, null));
+        private void BuyBearExecute() => TryBuy("Bear", 250, allItems.bear(null, null));
 
         private async void TryBuy(string preferenceKey, int cost, Item item)
         {
