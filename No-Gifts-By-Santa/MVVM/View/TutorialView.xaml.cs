@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using No_Gifts_By_Santa.MVVM.Model;
+﻿using No_Gifts_By_Santa.MVVM.Model;
 
 namespace No_Gifts_By_Santa.MVVM.View;
 
 public partial class TutorialView : ContentView
 {
-    private dropElement _giftBoxDropElement;
-    private List<Item> _items = new List<Item>();
+    private readonly dropElement _giftBoxDropElement;
+    private readonly List<Item> _items = new List<Item>();
     public TutorialView()
     {
         InitializeComponent();

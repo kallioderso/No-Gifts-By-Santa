@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Microsoft.Maui.Controls;
 using No_Gifts_By_Santa.MVVM.View;
 
 
@@ -62,6 +61,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public string Level24 { get; }
 
         //Constructor
+        [Obsolete]
         public LevelViewModel()
         {
             Day1 = new Command<ImageButton>(SelectLevel1);
@@ -116,35 +116,60 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
 
         //Method for Level Selection
-        private void SelectLevel1(ImageButton obj) => OpenLevelAsync(1);
-        private void SelectLevel2(ImageButton obj) => OpenLevelAsync(2);
-        private void SelectLevel3(ImageButton obj) => OpenLevelAsync(3);
-        private void SelectLevel4(ImageButton obj) => OpenLevelAsync(4);
-        private void SelectLevel5(ImageButton obj) => OpenLevelAsync(5);
-        private void SelectLevel6(ImageButton obj) => OpenLevelAsync(6);
-        private void SelectLevel7(ImageButton obj) => OpenLevelAsync(7);
-        private void SelectLevel8(ImageButton obj) => OpenLevelAsync(8);
-        private void SelectLevel9(ImageButton obj) => OpenLevelAsync(9);
-        private void SelectLevel10(ImageButton obj) => OpenLevelAsync(10);
-        private void SelectLevel11(ImageButton obj) => OpenLevelAsync(11);
-        private void SelectLevel12(ImageButton obj) => OpenLevelAsync(12);
-        private void SelectLevel13(ImageButton obj) => OpenLevelAsync(13);
-        private void SelectLevel14(ImageButton obj) => OpenLevelAsync(14);
-        private void SelectLevel15(ImageButton obj) => OpenLevelAsync(15);
-        private void SelectLevel16(ImageButton obj) => OpenLevelAsync(16);
-        private void SelectLevel17(ImageButton obj) => OpenLevelAsync(17);
-        private void SelectLevel18(ImageButton obj) => OpenLevelAsync(18);
-        private void SelectLevel19(ImageButton obj) => OpenLevelAsync(19);
-        private void SelectLevel20(ImageButton obj) => OpenLevelAsync(20);
-        private void SelectLevel21(ImageButton obj) => OpenLevelAsync(21);
-        private void SelectLevel22(ImageButton obj) => OpenLevelAsync(22);
-        private void SelectLevel23(ImageButton obj) => OpenLevelAsync(23);
-        private void SelectLevel24(ImageButton obj) => OpenLevelAsync(24);
+        [Obsolete]
+        private void SelectLevel1(ImageButton obj) => _ = OpenLevelAsync(1);
+        [Obsolete]
+        private void SelectLevel2(ImageButton obj) => _ = OpenLevelAsync(2);
+        [Obsolete]
+        private void SelectLevel3(ImageButton obj) => _ = OpenLevelAsync(3);
+        [Obsolete]
+        private void SelectLevel4(ImageButton obj) => _ = OpenLevelAsync(4);
+        [Obsolete]
+        private void SelectLevel5(ImageButton obj) => _ = OpenLevelAsync(5);
+        [Obsolete]
+        private void SelectLevel6(ImageButton obj) => _ = OpenLevelAsync(6);
+        [Obsolete]
+        private void SelectLevel7(ImageButton obj) => _ = OpenLevelAsync(7);
+        [Obsolete]
+        private void SelectLevel8(ImageButton obj) => _ = OpenLevelAsync(8);
+        [Obsolete]
+        private void SelectLevel9(ImageButton obj) => _ = OpenLevelAsync(9);
+        [Obsolete]
+        private void SelectLevel10(ImageButton obj) => _ = OpenLevelAsync(10);
+        [Obsolete]
+        private void SelectLevel11(ImageButton obj) => _ = OpenLevelAsync(11);
+        [Obsolete]
+        private void SelectLevel12(ImageButton obj) => _ = OpenLevelAsync(12);
+        [Obsolete]
+        private void SelectLevel13(ImageButton obj) => _ = OpenLevelAsync(13);
+        [Obsolete]
+        private void SelectLevel14(ImageButton obj) => _ = OpenLevelAsync(14);
+        [Obsolete]
+        private void SelectLevel15(ImageButton obj) => _ = OpenLevelAsync(15);
+        [Obsolete]
+        private void SelectLevel16(ImageButton obj) => _ = OpenLevelAsync(16);
+        [Obsolete]
+        private void SelectLevel17(ImageButton obj) => _ = OpenLevelAsync(17);
+        [Obsolete]
+        private void SelectLevel18(ImageButton obj) => _ = OpenLevelAsync(18);
+        [Obsolete]
+        private void SelectLevel19(ImageButton obj) => _ = OpenLevelAsync(19);
+        [Obsolete]
+        private void SelectLevel20(ImageButton obj) => _ = OpenLevelAsync(20);
+        [Obsolete]
+        private void SelectLevel21(ImageButton obj) => _ = OpenLevelAsync(21);
+        [Obsolete]
+        private void SelectLevel22(ImageButton obj) => _ = OpenLevelAsync(22);
+        [Obsolete]
+        private void SelectLevel23(ImageButton obj) => _ = OpenLevelAsync(23);
+        [Obsolete]
+        private void SelectLevel24(ImageButton obj) => _ = OpenLevelAsync(24);
 
+        [Obsolete]
         private async Task OpenLevelAsync(int level)
         {
             if (!(Preferences.Get("level", 1) >= level))
-                Application.Current!.MainPage!.DisplayAlert("it isnt the time yet!", $"pls finish first Day {Preferences.Get("level", 1)}, before attempting this one", "ok");
+                _ = Application.Current!.MainPage!.DisplayAlert("it isnt the time yet!", $"pls finish first Day {Preferences.Get("level", 1)}, before attempting this one", "ok");
             else
             {
                 try

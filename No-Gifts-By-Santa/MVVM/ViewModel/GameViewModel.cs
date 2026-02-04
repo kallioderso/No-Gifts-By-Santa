@@ -7,13 +7,13 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
     public class GameViewModel : INotifyPropertyChanged
     {
         //Variables - Basic
-        private int level;
+        private int _level;
         private int _preparedGifts;
 
         //Clock Variables
-        private clock _clock = new clock();
+        private readonly clock _clock = new clock();
         private string _clockTime;
-        public string clockTime
+        public string ClockTime
         {
             get => _clockTime;
             set => _clockTime = value;
@@ -30,7 +30,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
         public string RemainingGifts
         {
-            get => $"Remaining Gifs: {_remainingGifts}";
+            get => $"Remaining Gifts: {_remainingGifts}";
             private set;
         }
         private int _remainingGifts;
@@ -85,20 +85,20 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             {
                 if (e.PropertyName == nameof(_clock._hours) || e.PropertyName == nameof(_clock._minutes))
                 {
-                    clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
-                    OnPropertyChanged(nameof(clockTime));
+                    ClockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
+                    OnPropertyChanged(nameof(ClockTime));
                 }
                 if (e.PropertyName == nameof(_clock._finished))
                     CheckforWonGame();
             };
-            clockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
-            OnPropertyChanged(nameof(clockTime));
+            ClockTime = $"clock_{_clock._hours}_{_clock._minutes:D2}.png";
+            OnPropertyChanged(nameof(ClockTime));
             _clock.StartClock();
         }
 
         //Method for picking items and the Gift box
         public void GenerateRound(AbsoluteLayout Canvas, double scaleX, double scaleY) => _GeneratePlayRound(Canvas, scaleX, scaleY);
-        public void InputLevel(int _level) => level = _level;
+        public void InputLevel(int _level) => this._level = _level;
         public void ClearRound()
         {
             _items.Clear();
@@ -124,11 +124,11 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             
             double size = 80 * Math.Min(scaleX, scaleY);
             
-            for (int i = 0; i < _items.Count; i++)
+            foreach (var t in _items)
             {
                 double x = new Random().Next(700, 1500) * scaleX;
                 double y = new Random().Next(400, 800) * scaleY;
-                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(x, y, size, size));
+                AbsoluteLayout.SetLayoutBounds(t, new Rect(x, y, size, size));
             }
         }
 
@@ -139,9 +139,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
             //Set progressbar
             _preparedGifts = Preferences.Get("preparedGifts", 0);
-            _remainingGifts = _progressBar >= 1 ? 0 : level - _preparedGifts;
+            _remainingGifts = _progressBar >= 1 ? 0 : _level - _preparedGifts;
             OnPropertyChanged(nameof(RemainingGifts));
-            _progressBar = ((double)_preparedGifts / level);
+            _progressBar = ((double)_preparedGifts / _level);
             OnPropertyChanged(nameof(Progress));
             
 
@@ -187,10 +187,10 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             _canvas.Add(_giftBox);
             AbsoluteLayout.SetLayoutBounds(_giftBox, new Rect(280*scaleX, 720*scaleY, 200*scaleX, 200*scaleX));
         
-            for (int i = 0; i < _items.Count; i++)
+            foreach (var t in _items)
             {
-                _canvas.Add(_items[i]);
-                AbsoluteLayout.SetLayoutBounds(_items[i], new Rect(new Random().Next(700, 1600)*scaleX, new Random().Next(400, 800)*scaleY, 80*scaleX, 80*scaleX));
+                _canvas.Add(t);
+                AbsoluteLayout.SetLayoutBounds(t, new Rect(new Random().Next(700, 1600)*scaleX, new Random().Next(400, 800)*scaleY, 80*scaleX, 80*scaleX));
             }
         }
 
@@ -200,9 +200,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 return;
             MainThread.BeginInvokeOnMainThread(async () =>
             {
-                if (_preparedGifts >= level)
+                if (_preparedGifts >= _level && !(Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= _level/2))
                 {
-                    if(Preferences.Get("level", 1) == level)
+                    if(Preferences.Get("level", 1) == _level)
                         Preferences.Set("level", Preferences.Get("level", 1) +1);
                     Preferences.Set("complete", true);
                 }
@@ -210,8 +210,8 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                     Preferences.Set("complete", false);
 
                 await Application.Current!.MainPage!.DisplayAlert(
-                    Preferences.Get("complete", false) == true ? $"Day {level} commpleted" : $"Day {level} failed",
-                    $"Prepared Items: {Preferences.Get("preparedItem", 0)} \nPrepared Gifts: {Preferences.Get("preparedGifts", 0)}\nEarned gingerbread: {Preferences.Get("earnings", 0)}\n\nGifts:\nWorse: {Preferences.Get("Worse", 0)} \nBad: {Preferences.Get("Bad", 0)} \nusable: {Preferences.Get("usable", 0)}\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}",
+                    Preferences.Get("complete", false) ? $"Day {_level} commpleted" : $"Day {_level} failed",
+                    $"Prepared Items: {Preferences.Get("preparedItem", 0)} \nPrepared Gifts: {Preferences.Get("preparedGifts", 0)}\nEarned gingerbread: {Preferences.Get("earnings", 0)}\n\nGifts:\nWorse: {Preferences.Get("Worse", 0)} \nBad: {Preferences.Get("Bad", 0)} \nusable: {Preferences.Get("usable", 0)}\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}{(Preferences.Get("complete", false) ? "" : ((Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= _level/2) ? "\n\nFailed: To Bad Presents" : "\n\nFailed: To less Presents"))}",
                     "continue");
                 await Application.Current.MainPage.Navigation.PopAsync();
             });

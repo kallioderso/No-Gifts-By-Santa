@@ -10,18 +10,18 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
     public class MenuViewModel : INotifyPropertyChanged
     {
         //Variables - Basic
-        public bool dragable
+        public bool Dragable
         {
             get => _dragable;
             private set;
         }
 
         private bool _dragable;
-        private double _buttonWidth;
+
         public double ButtonWidth
         {
-            get => _buttonWidth;
-            set => SetField(ref _buttonWidth, value);
+            get;
+            set => SetField(ref field, value);
         }
 
         public Microsoft.Maui.Controls.View Popup
@@ -65,7 +65,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         }
         
         //Button Methods / ICommands
-        private async void LevelButton(Button button)
+        private void LevelButton(Button button)
         {
             _dragable = true;
             Popup = new LevelView();
@@ -73,7 +73,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(PopupEnabled));
             OnPropertyChanged(nameof(Popup));
         }
-        private async void CreditsButton(Button button)
+        private void CreditsButton(Button button)
         {
             _dragable = true;
             Popup = new CreditsView();
@@ -81,7 +81,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(PopupEnabled));
             OnPropertyChanged(nameof(Popup));
         }
-        private async void SettingsButton(Button button)
+        private void SettingsButton(Button button)
         {
             _dragable = true;
             Popup = new SettingsView();
@@ -89,7 +89,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(PopupEnabled));
             OnPropertyChanged(nameof(Popup));
         }
-        private async void TutorialButton(Button button)
+        private void TutorialButton(Button button)
         {
             _dragable = false;
             Popup = new TutorialView();
@@ -98,7 +98,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             OnPropertyChanged(nameof(Popup));
         }
 
-        private async void ShopButton(Button button)
+        private void ShopButton(Button button)
         {
             _dragable = true;
             Popup = new ShopView();

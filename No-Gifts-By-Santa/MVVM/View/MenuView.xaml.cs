@@ -31,7 +31,7 @@ public partial class MenuView : ContentPage
 
     void PopUpDragUpdate(object sender, PanUpdatedEventArgs e)
     {
-        if (!PopupFrame.IsVisible || !_viewModel.dragable)
+        if (!PopupFrame.IsVisible || !_viewModel.Dragable)
             return;
         
         switch (e.StatusType)
