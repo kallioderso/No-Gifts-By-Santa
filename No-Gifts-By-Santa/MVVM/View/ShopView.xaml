@@ -81,15 +81,15 @@
                     <StackLayout Orientation="Horizontal">
                         <Grid HeightRequest="150" WidthRequest="150">
                             <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
-                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Vodka}" Command="{Binding BuyHeyhat}" HeightRequest="100" WidthRequest="100" />
+                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Vodka}" Command="{Binding BuyVodka}" HeightRequest="100" WidthRequest="100" />
                         </Grid>
                         <Grid HeightRequest="150" WidthRequest="150">
                             <Image HeightRequest="150" WidthRequest="150" Source="pack_item_2.png" />
-                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Wine}" Command="{Binding BuyHayhayhay}" HeightRequest="100" WidthRequest="100" />                            
+                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Wine}" Command="{Binding BuyWine}" HeightRequest="100" WidthRequest="100" />                            
                         </Grid>
                         <Grid HeightRequest="150" WidthRequest="150">
                             <Image HeightRequest="150" WidthRequest="150" Source="pack_item_3.png" />
-                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Bear}" Command="{Binding BuyCarrot}" HeightRequest="100" WidthRequest="100" />
+                            <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Bear}" Command="{Binding BuyBear}" HeightRequest="100" WidthRequest="100" />
                         </Grid>
                         <StackLayout Orientation="Vertical" VerticalOptions="Center">
                             <StackLayout Orientation="Horizontal">

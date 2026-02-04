@@ -16,6 +16,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public ICommand BuyHeyhat { get; }
         public ICommand BuyHayhayhay { get; }
         public ICommand BuyCarrot { get; }
+        public ICommand BuyVodka { get; }
+        public ICommand BuyWine { get; }
+        public ICommand BuyBear { get; }
 
         // Item images
         public string Candy1
@@ -107,6 +110,9 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             BuyHeyhat = new Command(BuyHeyhatExecute);
             BuyHayhayhay = new Command(BuyHayhayhayExecute);
             BuyCarrot = new Command(BuyCarrotExecute);
+            BuyVodka = new Command(BuyVodkaExecute);
+            BuyWine = new Command(BuyWineExecute);
+            BuyBear = new Command(BuyBearExecute);
 
             RefreshGingerbreads();
             RefreshImages();
