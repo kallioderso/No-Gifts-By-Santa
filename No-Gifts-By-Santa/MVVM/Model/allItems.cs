@@ -8,12 +8,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
         }
 
         public static Item Bee(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "cuddle-toy", "kids", "fabric", "fun", "bee.png");
-        public static Item Candy(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "sweet", "all", "candy", "hunger", "candy_1.png");
         public static Item mug1(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "blue", "kitchen", "adult", "porcelain", "allday", "muc_1.png");
         public static Item mug2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "kitchen", "adult", "porcelain", "allday", "muc_2.png");
-        public static Item orange(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "fruit", "hunger", "orange.png");
-        public static Item gingerbread(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "brown", "sweet", "kids", "candy", "hunger", "gingerbread.png");
-        public static Item Candy_2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "blue", "sweet", "all", "candy", "hunger", "candy_2.png");
         public static Item ring1(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "accesory", "adult", "gold", "wearing", "ring_1.png");
         //public static Item Dildo(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "pink", "toy", "adult", "silicon", "sec", "dildo.png");
         public static Item Axe(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "tools", "adult", "metal", "crafting", "axe.png");
@@ -22,13 +18,17 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public static Item ring2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "gray", "accesory", "adult", "silver", "wearing", "ring_2.png");
         public static Item money1(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "shoping", "all", "metal", "allday", "money_1.png");
         public static Item money2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "shoping", "all", "paper", "allday", "money_2.png");
-        public static Item hat2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "accesory", "adult", "hay", "farming", "hat_2.png");
-        public static Item heyheyhey(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "gray", "tools", "adult", "metal", "farming", "heyheyhey.png");
-        public static Item carrot(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "vegetables", "hunger", "carrot.png");
-        public static Item apple(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "food", "all", "fruit", "hunger", "apple.png");
-        public static Item cherry(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "food", "all", "fruit", "hunger", "cherry.png");
-        public static Item vodca(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "black", "drinking", "adult", "alcohole", "fun", "vodca.png");
-        public static Item wine(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "drinking", "adult", "alcohole", "fun", "wine.png");
-        public static Item bear(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "drinking", "adult", "alcohole", "fun", "bear.png");
+        public static Item gingerbread(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "brown", "sweet", "kids", "candy", "hunger", "gingerbread.png", 2);
+        public static Item Candy_2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "blue", "sweet", "all", "candy", "hunger", "candy_2.png", 2);
+        public static Item Candy(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "sweet", "all", "candy", "hunger", "candy_1.png", 2);
+        public static Item hat2(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "yellow", "accesory", "adult", "hay", "farming", "hat_2.png", 3);
+        public static Item heyheyhey(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "gray", "tools", "adult", "metal", "farming", "heyheyhey.png", 3);
+        public static Item carrot(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "vegetables", "hunger", "carrot.png", 3);
+        public static Item orange(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "orange", "food", "all", "fruit", "hunger", "orange.png", 4);
+        public static Item apple(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "food", "all", "fruit", "hunger", "apple.png", 4);
+        public static Item cherry(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "food", "all", "fruit", "hunger", "cherry.png", 4);
+        public static Item vodca(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "black", "drinking", "adult", "alcohole", "fun", "vodca.png", 5);
+        public static Item wine(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "red", "drinking", "adult", "alcohole", "fun", "wine.png", 5);
+        public static Item bear(AbsoluteLayout view, dropElement drop) => new Item(view, drop, "green", "drinking", "adult", "alcohole", "fun", "bear.png", 5);
     }
 }

@@ -17,16 +17,24 @@ namespace No_Gifts_By_Santa.MVVM.Model
                 case 1:
                     return (wish_1(view, _viewModel));
                 case 2:
+                    if (!Preferences.Get("CandyCane", false))
+                        return random(view, _viewModel);
                     return (wish_2(view, _viewModel));
                 case 3:
                     return (wish_3(view, _viewModel));
                 case 4:
                     return (wish_4(view, _viewModel));
                 case 5:
+                    if (!Preferences.Get("Orange", false))
+                        return random(view, _viewModel);
                     return (wish_5(view, _viewModel));
                 case 6:
+                    if (!Preferences.Get("GingerbreadMan", false))
+                        return random(view, _viewModel);
                     return (wish_6(view, _viewModel));
                 case 7:
+                    if (!Preferences.Get("BonBon", false))
+                        return random(view, _viewModel);
                     return (wish_7(view, _viewModel));
                 case 8:
                     return (wish_8(view, _viewModel));
@@ -43,22 +51,38 @@ namespace No_Gifts_By_Santa.MVVM.Model
                 case 14:
                     return (wish_14(view, _viewModel));
                 case 15:
+                    if (!Preferences.Get("Hayhat", false))
+                        return random(view, _viewModel);
                     return (wish_15(view, _viewModel));
                 case 16:
+                    if (!Preferences.Get("pitchfork", false))
+                        return random(view, _viewModel);
                     return (wish_16(view, _viewModel));
                 case 17:
+                    if (!Preferences.Get("Carrot", false))
+                        return random(view, _viewModel);
                     return (wish_17(view, _viewModel));
                 case 18:
+                    if (!Preferences.Get("Apple", false))
+                        return random(view, _viewModel);
                     return (wish_18(view, _viewModel));
                 case 19:
+                    if (!Preferences.Get("Cherry", false))
+                        return random(view, _viewModel);
                     return (wish_19(view, _viewModel));
                 case 20:
+                    if (!Preferences.Get("Hayhat", false))
+                        return random(view, _viewModel);
                     return (wish_20(view, _viewModel));
                 case 21:
                     return (wish_21(view, _viewModel));
                 case 22:
+                    if (!Preferences.Get("Cherry", false))
+                        return random(view, _viewModel);
                     return (wish_22(view, _viewModel));
                 case 23:
+                    if (!Preferences.Get("Carrot", false))
+                        return random(view, _viewModel);
                     return (wish_23(view, _viewModel));
                 case 24:
                     return (wish_24(view, _viewModel));

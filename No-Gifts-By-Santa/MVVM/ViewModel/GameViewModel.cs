@@ -7,6 +7,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
     public class GameViewModel : INotifyPropertyChanged
     {
         //Variables - Basic
+        private static readonly Random _random = new Random();
         private int _level;
         private int _preparedGifts;
 
@@ -126,8 +127,8 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             
             foreach (var t in _items)
             {
-                double x = new Random().Next(700, 1500) * scaleX;
-                double y = new Random().Next(400, 800) * scaleY;
+                double x = _random.Next(700, 1500) * scaleX;
+                double y = _random.Next(400, 800) * scaleY;
                 AbsoluteLayout.SetLayoutBounds(t, new Rect(x, y, size, size));
             }
         }
@@ -195,7 +196,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             foreach (var t in _items)
             {
                 _canvas.Add(t);
-                AbsoluteLayout.SetLayoutBounds(t, new Rect(new Random().Next(700, 1600)*scaleX, new Random().Next(400, 800)*scaleY, 80*scaleX, 80*scaleX));
+                AbsoluteLayout.SetLayoutBounds(t, new Rect(_random.Next(700, 1600)*scaleX, _random.Next(400, 800)*scaleY, 80*scaleX, 80*scaleX));
             }
         }
 
@@ -205,7 +206,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
                 return;
             MainThread.BeginInvokeOnMainThread(async () =>
             {
-                if (_preparedGifts >= _level && !(Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= _level/2))
+                if (_preparedGifts >= _level && !((Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= Preferences.Get("preparedItem", 0)/2)))
                 {
                     if(Preferences.Get("level", 1) == _level)
                         Preferences.Set("level", Preferences.Get("level", 1) +1);
@@ -216,7 +217,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
 
                 await Application.Current!.MainPage!.DisplayAlert(
                     Preferences.Get("complete", false) ? $"Day {_level} commpleted" : $"Day {_level} failed",
-                    $"Prepared Items: {Preferences.Get("preparedItem", 0)} \nPrepared Gifts: {Preferences.Get("preparedGifts", 0)}\nEarned gingerbread: {Preferences.Get("earnings", 0)}\n\nGifts:\nWorse: {Preferences.Get("Worse", 0)} \nBad: {Preferences.Get("Bad", 0)} \nusable: {Preferences.Get("usable", 0)}\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}{(Preferences.Get("complete", false) ? "" : ((Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= _level/2) ? "\n\nFailed: To Bad Presents" : "\n\nFailed: To less Presents"))}",
+                    $"Prepared Items: {Preferences.Get("preparedItem", 0)} \nPrepared Gifts: {Preferences.Get("preparedGifts", 0)}\nEarned gingerbread: {Preferences.Get("earnings", 0)}\n\nGifts:\nWorse: {Preferences.Get("Worse", 0)} \nBad: {Preferences.Get("Bad", 0)} \nusable: {Preferences.Get("usable", 0)}\nNormal: {Preferences.Get("Normal", 0)}\nGood: {Preferences.Get("Good", 0)}\nPerfekt: {Preferences.Get("Perfekt", 0)}\nBonus: {Preferences.Get("Bonus", 0)}{(Preferences.Get("complete", false) ? "" : ((Preferences.Get("Worse", 0) + Preferences.Get("Bad", 0) >= Preferences.Get("preparedItem", 0)/2) ? "\n\nFailed: To Bad Presents" : "\n\nFailed: To less Presents"))}",
                     "continue");
                 await Application.Current.MainPage.Navigation.PopAsync();
             });

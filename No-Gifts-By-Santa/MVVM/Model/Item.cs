@@ -17,6 +17,8 @@
         public string AgeGroup { get; set; }
         public string Material { get; set; }
         public string Usage { get; set; }
+
+        public int Bonus { get; set; }
         
         //Other Variables
         public Item(AbsoluteLayout canvas, dropElement dropElement, string color, string category, string agegroup, string material, string usage, string source) : base(canvas)
@@ -36,6 +38,12 @@
             Usage = usage;
         }
 
+        public Item(AbsoluteLayout canvas, dropElement dropElement, string color, string category, string agegroup,
+            string material, string usage, string source, int bonus)
+            : this(canvas, dropElement, color, category, agegroup, material, usage, source)
+        {
+            Bonus = bonus;
+        }
 
         private void AttributeHover(object? sender, FocusEventArgs e)
         {

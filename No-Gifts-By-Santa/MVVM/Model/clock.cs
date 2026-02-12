@@ -23,7 +23,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         public void StartClock()
         {
             _isPaused = false;
-            Task.Run(TimeLoop);
+            _ = TimeLoop();
         }
         public void PauseClock() { _isPaused = true; }
         public void ResumeClock() { _isPaused = false; }

@@ -92,7 +92,6 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             get;
             private set => SetField(ref field, value);
         }
-
         public string Gingerbreads
         {
             get;
@@ -139,35 +138,35 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             Bear = $"bear{(Preferences.Get("Bear", false) ? "" : "_off")}.png";
         }
 
-        private void BuyCandy1Execute() => TryBuy("CandyCane", 50, allItems.Candy(null, null));
-        private void BuyCandy2Execute() => TryBuy("BonBon", 50, allItems.Candy_2(null, null));
-        private void BuyGingerbreadExecute() => TryBuy("GingerbreadMan", 50, allItems.gingerbread(null, null));
-        private void BuyOrangeExecute() => TryBuy("Orange", 100, allItems.orange(null, null));
-        private void BuyAppleExecute() => TryBuy("Apple", 100, allItems.apple(null, null));
-        private void BuyCherryExecute() => TryBuy("Cherry", 100, allItems.cherry(null, null));
-        private void BuyHeyhatExecute() => TryBuy("Hayhat", 200, allItems.hat2(null, null));
-        private void BuyHayhayhayExecute() => TryBuy("pitchfork", 200, allItems.heyheyhey(null, null));
-        private void BuyCarrotExecute() => TryBuy("Carrot", 200, allItems.carrot(null, null));
-        private void BuyVodkaExecute() => TryBuy("Vodka", 250, allItems.vodca(null, null));
-        private void BuyWineExecute() => TryBuy("Wine", 250, allItems.wine(null, null));
-        private void BuyBearExecute() => TryBuy("Bear", 250, allItems.bear(null, null));
+        private void BuyCandy1Execute() => _ = TryBuy("CandyCane", 50, allItems.Candy(null, null));
+        private void BuyCandy2Execute() => _ = TryBuy("BonBon", 50, allItems.Candy_2(null, null));
+        private void BuyGingerbreadExecute() => _ = TryBuy("GingerbreadMan", 50, allItems.gingerbread(null, null));
+        private void BuyOrangeExecute() => _ = TryBuy("Orange", 100, allItems.orange(null, null));
+        private void BuyAppleExecute() => _ = TryBuy("Apple", 100, allItems.apple(null, null));
+        private void BuyCherryExecute() => _ = TryBuy("Cherry", 100, allItems.cherry(null, null));
+        private void BuyHeyhatExecute() => _ = TryBuy("Hayhat", 200, allItems.hat2(null, null));
+        private void BuyHayhayhayExecute() => _ = TryBuy("pitchfork", 200, allItems.heyheyhey(null, null));
+        private void BuyCarrotExecute() => _ = TryBuy("Carrot", 200, allItems.carrot(null, null));
+        private void BuyVodkaExecute() => _ = TryBuy("Vodka", 250, allItems.vodca(null, null));
+        private void BuyWineExecute() => _ = TryBuy("Wine", 250, allItems.wine(null, null));
+        private void BuyBearExecute() => _ = TryBuy("Bear", 250, allItems.bear(null, null));
 
-        private async void TryBuy(string preferenceKey, int cost, Item item)
+        private async Task TryBuy(string preferenceKey, int cost, Item item)
         {
             if (Preferences.Get(preferenceKey, false))
             {
-                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "close");
+                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}\nBonus: {item.Bonus} (while Perfect)", "close");
                 return;
             }
 
             var balance = Preferences.Get("Lebkuchen", 0);
             if (balance < cost)
             {
-                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "Not Enough Gingerbread");
+                await Application.Current!.MainPage!.DisplayAlert(preferenceKey, $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}\nBonus: {item.Bonus} (while Perfect)", "Not Enough Gingerbread");
                 return;
             }
 
-            var buy = await Application.Current.MainPage.DisplayAlert(preferenceKey,  $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}", "Buy", "close");
+            var buy = await Application.Current.MainPage.DisplayAlert(preferenceKey,  $"Properties:\n\nColor: {item.Color}\nCategory: {item.Category}\nAge-group: {item.AgeGroup}\nMaterial: {item.Material}\nUsage: {item.Usage}\nBonus: {item.Bonus} (while Perfect)", "Buy", "close");
             if(!buy)
                 return;
             var updatedBalance = balance - cost;
