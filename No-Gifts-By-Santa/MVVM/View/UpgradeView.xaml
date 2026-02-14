@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:No_Gifts_By_Santa.MVVM.ViewModel"
+             x:Class="No_Gifts_By_Santa.MVVM.View.UpgradeView">
+    
+    <ContentView.BindingContext>
+        <local:UpgradeViewModel/>
+    </ContentView.BindingContext>
+
+    <ContentView.Content>
+        <Grid>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
+            <Image Source="gingerbread.png" HeightRequest="30" WidthRequest="30" />
+            <Label Text="{Binding Gingerbreads}" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+        </StackLayout>
+        <ScrollView Margin="70, 20, 0, 0">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Margin="0,10,0,0">
+                        <Label Text="30% time slower" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
+                            <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="200"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid HeightRequest="150" WidthRequest="150">
+                        <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Slow1}" HeightRequest="150" WidthRequest="150" Command="{Binding BuySlow1}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Margin="0,10,0,0">
+                        <Label Text="55% time slower" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
+                            <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="300"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid HeightRequest="150" WidthRequest="150">
+                        <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Slow2}" HeightRequest="150" WidthRequest="150" Command="{Binding BuySlow2}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Margin="0,10,0,0">
+                        <Label Text="75% time slower" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
+                            <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="400"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid HeightRequest="150" WidthRequest="150">
+                        <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Slow3}" HeightRequest="150" WidthRequest="150" Command="{Binding BuySlow3}" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Margin="0,10,0,0">
+                        <Label Text="90% time slower" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+                        <Label Text="" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="gingerbread.png" WidthRequest="35" HeightRequest="35"/>
+                            <Label FontSize="20" TextColor="White" FontAttributes="Bold" Text="500"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid HeightRequest="150" WidthRequest="150">
+                        <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
+                        <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Slow4}" HeightRequest="150" WidthRequest="150" Command="{Binding BuySlow4}" />
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

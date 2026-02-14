@@ -90,7 +90,8 @@ namespace No_Gifts_By_Santa.MVVM.Model
                         case 4:
                             Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 2); Preferences.Set("Good", Preferences.Get("Good", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+2); break;
                         case 5:
-                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); Preferences.Set("Perfekt", Preferences.Get("Perfekt", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+3); break;
+                            Preferences.Set("Lebkuchen", Preferences.Get("Lebkuchen", 0) + 3); Preferences.Set("Perfekt", Preferences.Get("Perfekt", 0) + 1); Preferences.Set("earnings", Preferences.Get("earnings", 0)+3+item.Bonus);
+                            Preferences.Set("Bonus", Preferences.Get("Bonus", 0) + item.Bonus); break;
                     }
 
                     Preferences.Set("preparedItem", Preferences.Get("preparedItem", 0) + 1);

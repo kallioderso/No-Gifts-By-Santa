@@ -42,6 +42,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         public ICommand _settingsView { get; }
         public ICommand _tutorialView { get; }
         public ICommand _shopView { get; }
+        public ICommand _upgradeView { get; }
         public ICommand _closePopup { get; }
 
         public MenuViewModel()
@@ -51,6 +52,7 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
             _settingsView = new Command<Button>(SettingsButton);
             _tutorialView = new Command<Button>(TutorialButton);
             _shopView = new Command<Button>(ShopButton);
+            _upgradeView = new Command<Button>(UpgradeButton);
             _closePopup = new Command<Button>(ClosePopup);
         }
         
@@ -102,6 +104,15 @@ namespace No_Gifts_By_Santa.MVVM.ViewModel
         {
             _dragable = true;
             Popup = new ShopView();
+            PopupEnabled = true;
+            OnPropertyChanged(nameof(PopupEnabled));
+            OnPropertyChanged(nameof(Popup));
+        }
+
+        private void UpgradeButton(Button button)
+        {
+            _dragable = true;
+            Popup = new UpgradeView();
             PopupEnabled = true;
             OnPropertyChanged(nameof(PopupEnabled));
             OnPropertyChanged(nameof(Popup));

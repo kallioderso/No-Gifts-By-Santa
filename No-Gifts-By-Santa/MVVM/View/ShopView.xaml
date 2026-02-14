@@ -18,7 +18,7 @@
             <ScrollView Margin="50,0,0,0">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Orientation="Horizontal">
-                         <Grid HeightRequest="150" WidthRequest="150">
+                        <Grid HeightRequest="150" WidthRequest="150">
                             <Image HeightRequest="150" WidthRequest="150" Source="pack_item_1.png" />
                             <ImageButton Padding="20" BackgroundColor="Transparent" Source="{Binding Candy1}" Command="{Binding BuyCandy1}" HeightRequest="100" WidthRequest="100" />
                         </Grid>

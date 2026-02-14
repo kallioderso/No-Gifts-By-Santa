@@ -32,7 +32,7 @@ namespace No_Gifts_By_Santa.MVVM.Model
         {
             while (_hours < 20)
             {
-                await Task.Delay(1000);
+                await Task.Delay(1000+(Preferences.Get("Slowing", 0)*10));
                 if (!_isPaused)
                 {
                     if (_minutes == 45)
