@@ -81,7 +81,7 @@ We are both German students currently working toward our Abitur.
 - 👨‍💻 Pascal Lösch:<br>
 Learning and improving programming skills, with the goal of studying computer science after graduation.
 
-- 🎨 Lena Röder:<br>
+- 🎨 Len Röder:<br>
 Continuously developing design skills and completing the Abitur in the design field.
 
 To grow our abilities together, we joined this Hack Club event — to learn, improve, and create something beautiful.
